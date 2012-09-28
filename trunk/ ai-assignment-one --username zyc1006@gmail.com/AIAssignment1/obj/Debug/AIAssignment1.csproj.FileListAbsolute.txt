@@ -6,3 +6,11 @@ F:\Workspace\AIAssignment1\AIAssignment1\obj\Debug\AIAssignment1.Properties.Reso
 F:\Workspace\AIAssignment1\AIAssignment1\obj\Debug\AIAssignment1.csproj.GenerateResource.Cache
 F:\Workspace\AIAssignment1\AIAssignment1\obj\Debug\AIAssignment1.exe
 F:\Workspace\AIAssignment1\AIAssignment1\obj\Debug\AIAssignment1.pdb
+D:\ai\AIAssignment1\bin\Debug\AIAssignment1.exe
+D:\ai\AIAssignment1\bin\Debug\AIAssignment1.pdb
+D:\ai\AIAssignment1\obj\Debug\ResolveAssemblyReference.cache
+D:\ai\AIAssignment1\obj\Debug\AIAssignment1.Form1.resources
+D:\ai\AIAssignment1\obj\Debug\AIAssignment1.Properties.Resources.resources
+D:\ai\AIAssignment1\obj\Debug\AIAssignment1.csproj.GenerateResource.Cache
+D:\ai\AIAssignment1\obj\Debug\AIAssignment1.exe
+D:\ai\AIAssignment1\obj\Debug\AIAssignment1.pdb
