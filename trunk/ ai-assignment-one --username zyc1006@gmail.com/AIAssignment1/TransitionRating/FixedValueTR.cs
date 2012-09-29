@@ -5,10 +5,16 @@ using System.Text;
 
 namespace AIAssignment1.TransitionRating
 {
+    // <summary>
+    // Rates a transition using fixed scores for each action.
+    // </summary>
     public class FixedValueTR : TransitionRater
     {
         private Dictionary<string, TaskScore> scores;
 
+        // <summary>
+        // Creates a new Fixed value transition rater with the given scores.
+        // </summary>
         public FixedValueTR(TaskScore[] taskscores)
         {
             scores = new Dictionary<string, TaskScore>();
@@ -17,6 +23,9 @@ namespace AIAssignment1.TransitionRating
                 scores.Add(taskscores[i].T.Abbr, taskscores[i]);
         }
 
+        // <summary>
+        // Rates the set of actions based in the given task-scores.
+        // <summary>
         public virtual int rateActions(Dictionary<string, int> actions)
         {
             int score = 0;
@@ -31,6 +40,9 @@ namespace AIAssignment1.TransitionRating
             return score;
         }
 
+        // <summary>
+        // Returns the score for the given action.
+        // <summary>
         public virtual int rateAction(string action)
         {
             try
@@ -42,6 +54,11 @@ namespace AIAssignment1.TransitionRating
             }
         }
 
+        /**
+         * <summary>
+         * Used to associate a Task with a score.
+         * </summary>
+         */
         public class TaskScore 
         {
             public Task T { get; private set; }

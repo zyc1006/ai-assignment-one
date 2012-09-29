@@ -5,10 +5,21 @@ using System.Text;
 
 namespace AIAssignment1.TransitionRating
 {
+    /**
+     * <summary>
+     * Transition rater used to evaluate actions based on the resources required.
+     * </summary>
+     */
     public class ResourceBasedTR : TransitionRater
     {
         private Dictionary<Resource, ResourceScore> scoreLookup;
 
+        /**
+         * <summary>
+         * Creates a new resource based transition rater using the given
+         * resource scores.
+         * </summary>
+         */
         public ResourceBasedTR(ResourceScore[] rs)
         {
             scoreLookup = new Dictionary<Resource, ResourceScore>();
@@ -18,6 +29,11 @@ namespace AIAssignment1.TransitionRating
             }
         }
 
+        /**
+         * <summary>
+         * Returns a score based on the amount of resources used by the set of actions.
+         * </summary>
+         */
         public virtual int rateActions(Dictionary<string, int> actions)
         {
             int score = 0;
@@ -28,6 +44,11 @@ namespace AIAssignment1.TransitionRating
             return score;
         }
 
+        /**
+         * <summary>
+         * Returns a score for the given action based on the resources use by it.
+         * </summary>
+         */
         public virtual int rateAction(string action)
         {
             Task t = Task.getByAbbr(action);
@@ -36,14 +57,24 @@ namespace AIAssignment1.TransitionRating
             return rateAction(t);
         }
 
+        /**
+         * <summary>
+         * Returns a score for the given Task based on the resouces used by it.
+         * </summary>
+         */
         public virtual int rateAction(Task t)
         {
             int s = 0;
-            foreach (Task.ResourceQty rqty in t.PrereqResources)
+            foreach (ResourceQty rqty in t.PrereqResources)
                 s += rqty.Quantity * scoreLookup[rqty.Resource].Score;
             return s;
         }
 
+        /**
+         * <summary>
+         * Used to define a score for a given resource.
+         * </summary>
+         */
         public class ResourceScore
         {
             public Resource R { get; private set; }
