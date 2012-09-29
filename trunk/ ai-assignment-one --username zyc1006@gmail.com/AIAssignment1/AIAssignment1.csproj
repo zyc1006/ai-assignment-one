@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIA1Object.cs" />
+    <Compile Include="Basics\AIA1Object.cs" />
     <Compile Include="CActions.cs" />
     <Compile Include="CBlStatusDGV.cs" />
     <Compile Include="CStateInfo.cs" />
@@ -83,11 +83,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TransitionRating\FixedValueTR.cs" />
-    <Compile Include="TransitionRating\Resource.cs" />
+    <Compile Include="Basics\Resource.cs" />
     <Compile Include="TransitionRating\ResourceBasedTR.cs" />
-    <Compile Include="TransitionRating\ResourceQty.cs" />
-    <Compile Include="TransitionRating\Task.cs" />
-    <Compile Include="TransitionRating\TransitionRater.cs" />
+    <Compile Include="Basics\ResourceQty.cs" />
+    <Compile Include="Basics\Task.cs" />
+    <Compile Include="TransitionRating\ITransitionRater.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Heuristics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

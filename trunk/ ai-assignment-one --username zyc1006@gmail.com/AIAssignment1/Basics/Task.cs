@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AIAssignment1.TransitionRating
+namespace AIAssignment1.Basics
 {
     /**
      * <summary>

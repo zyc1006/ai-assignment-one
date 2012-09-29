@@ -9,7 +9,7 @@ namespace AIAssignment1.TransitionRating
     // Defines an object that can be used to rate a set of
     // actions regardless of the current state.
     // </summary>
-    public interface TransitionRater
+    public interface ITransitionRater
     {
         // <summary>
         // Evaluates the set of actions and returns a score.
