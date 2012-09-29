@@ -6,10 +6,20 @@ using System.Text;
 namespace AIAssignment1.TransitionRating
 {
 
+    /**
+     * <summary>
+     * Describes a resource in the problem domain model.
+     * </summary>
+     */
     public class Resource : AIA1Object
     {
         public Resource(string name, string abbr) : base(name, abbr) { }
 
+        /**
+         * <summary>
+         * Returns the resource with the given name, or null if no such resource exists.
+         * </summary>
+         */
         public static new Resource getByName(string name)
         {
             AIA1Object r = AIA1Object.getByAbbr(name);
@@ -19,6 +29,11 @@ namespace AIAssignment1.TransitionRating
                 return null;
         }
 
+        /**
+         * <summary>
+         * Returns the resource with the given abbreviation, or null if no such resource exists.
+         * </summary>
+         */
         public static new Resource getByAbbr(string abbr)
         {
             AIA1Object r = AIA1Object.getByAbbr(abbr);
@@ -28,6 +43,11 @@ namespace AIAssignment1.TransitionRating
                 return null;
         }
 
+        /**
+         * <summary>
+         * Initializes the standard set of resources used by the standard task set.
+         * </summary>
+         */
         public static void initStandardSet()
         {
             new Resource("Spunkee", "ESp");

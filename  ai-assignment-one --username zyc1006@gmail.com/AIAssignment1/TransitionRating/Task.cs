@@ -5,6 +5,11 @@ using System.Text;
 
 namespace AIAssignment1.TransitionRating
 {
+    /**
+     * <summary>
+     * Describes a task in the problem domain model, in terms of duration and required resources.
+     * </summary>
+     */
     public class Task : AIA1Object
     {
         private ResourceQty[] resQty;
@@ -35,13 +40,22 @@ namespace AIAssignment1.TransitionRating
             }
         }
 
+        /**
+         * <summary>
+         * Creates a new task with the given duration and required resource quantities.
+         * </summary>
+         */
         public Task(string name, string abbr, int duration, ResourceQty[] resources) : base(name, abbr)
         {
             Duration = duration;
             resQty = resources;
         }
 
-
+        /**
+         * <summary>
+         * Returns the task with the given name, or null if no such task exists.
+         * </summary>
+         */
         public static new Task getByName(string name)
         {
             AIA1Object r = AIA1Object.getByAbbr(name);
@@ -51,6 +65,11 @@ namespace AIAssignment1.TransitionRating
                 return null;
         }
 
+        /**
+         * <summary>
+         * Returns the task with the given abbreviation, or null if no such task exists.
+         * </summary>
+         */
         public static new Task getByAbbr(string abbr)
         {
             AIA1Object r = AIA1Object.getByAbbr(abbr);
@@ -60,18 +79,11 @@ namespace AIAssignment1.TransitionRating
                 return null;
         }
 
-        public class ResourceQty
-        {
-            public Resource Resource { get; private set; }
-            public int Quantity { get; private set; }
-
-            public ResourceQty(Resource r, int quantity)
-            {
-                Resource = r;
-                Quantity = quantity;
-            }
-        }
-
+        /**
+         * <summary>
+         * Initializes a standard set of tasks.
+         * </summary>
+         */
         public static void initStandardSet()
         {
             new Task("Make Spunks", "MS", 1,
