@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AIAssignment1.Basics;
 
 namespace AIAssignment1.TransitionRating
 {
     // <summary>
     // Rates a transition using fixed scores for each action.
     // </summary>
-    public class FixedValueTR : TransitionRater
+    public class FixedValueTR : ITransitionRater
     {
         private Dictionary<string, TaskScore> scores;
 

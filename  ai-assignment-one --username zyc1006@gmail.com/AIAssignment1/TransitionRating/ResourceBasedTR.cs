@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AIAssignment1.Basics;
 
 namespace AIAssignment1.TransitionRating
 {
@@ -10,7 +11,7 @@ namespace AIAssignment1.TransitionRating
      * Transition rater used to evaluate actions based on the resources required.
      * </summary>
      */
-    public class ResourceBasedTR : TransitionRater
+    public class ResourceBasedTR : ITransitionRater
     {
         private Dictionary<Resource, ResourceScore> scoreLookup;
 
