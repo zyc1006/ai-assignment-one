@@ -16,6 +16,24 @@ namespace AIAssignment1
         private Int32 iServicedPlonks = 0;
         private Int32 iBligeesAvailable = 0;
         private Int32 iBligsAvailable = 0;
+
+        //Record the number of unavailable bligs at current action,
+        //Bligees will not service them until they are added to the list.
+        private Int32 iBligsUnavailableLastTime = 0;
+
+        public Int32 IBligsUnavailableLastTime
+        {
+            get { return iBligsUnavailableLastTime; }
+            set { iBligsUnavailableLastTime = value; }
+        }
+        private Int32 iBligsUnavailable = 0;
+
+        public Int32 IBligsUnavailable
+        {
+            get { return iBligsUnavailable; }
+            set { iBligsUnavailable = value; }
+        }
+
         private Int32 iUnservicedBligs = 0;
         private Int32 iTimesMakeSpunks = 0;
         private Int32 iTimesFindPlonks = 0;
@@ -27,9 +45,16 @@ namespace AIAssignment1
         private ArrayList listFastBligeeStatus = new ArrayList() { 0, 0, 0 };
         private ArrayList listNormalBligeeStatus = new ArrayList() { 0, 0, 0, 0, 0 };
 
-        public ArrayList listHistoryBlig = new ArrayList();
-        public ArrayList listHistoryNormalBligee = new ArrayList();
-        public ArrayList listHistoryFastBligee = new ArrayList();
+//         public ArrayList listHistoryBlig = new ArrayList();
+//         public ArrayList listHistoryNormalBligee = new ArrayList();
+//         public ArrayList listHistoryFastBligee = new ArrayList();
+        private ArrayList listBligsUsedLastTime = new ArrayList() { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        public ArrayList ListBligsUsedLastTime
+        {
+            get { return listBligsUsedLastTime; }
+            set { listBligsUsedLastTime = value; }
+        }
 
         public Int32 IBligTotal
         {

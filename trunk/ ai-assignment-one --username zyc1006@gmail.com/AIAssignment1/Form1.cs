@@ -21,6 +21,7 @@ namespace AIAssignment1
         {
             InitializeComponent();
             cStateInfo = new CStateInfo();
+            dgvInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //Notsortable
             foreach (DataGridViewColumn column in dgvInfo.Columns)
             {
@@ -46,7 +47,9 @@ namespace AIAssignment1
             txTotalPl.Enabled = false;
             txTotalSp.Enabled = false;
             txTotalWb.Enabled = false;
-
+            btStart.Enabled = false;
+            btStep.Enabled = true;
+            btRun.Enabled = true;
     //        displayStatusInfo(cStateInfo, iTimeLine);
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
         }
@@ -88,12 +91,12 @@ namespace AIAssignment1
 
         private void doAll()
         {
-//             CActions cActions = new CActions(cStateInfo);
-//             while(cStateInfo.IServicedPlonks < 1000)
-//             {
-//                 
-//             }
+            cActions.nextAction();
+            iTimeLine++;
+            displayStatusInfo(cStateInfo, iTimeLine);
+            displayBlStatusInfo(cStateInfo, iTimeLine - 1);
         }
+
         private void displayStatusInfo(CStateInfo cStateInfo, Int32 iTimeLine)
         {
 
@@ -110,29 +113,22 @@ namespace AIAssignment1
 
         private void displayBlStatusInfo(CStateInfo cStateInfo, Int32 iTimeLine)
         {
-            if (dgvBlInfo.DataSource != null)
-            {
-                DataTable dt = (DataTable)dgvBlInfo.DataSource;
-                dt.Rows.Clear();
-                dgvBlInfo.DataSource = dt;
-            }
-            else
-            {
-                dgvBlInfo.Rows.Clear();
-            }
+         
+            dgvBlInfo.Rows.Clear();
+         
 //            CStateInfo cStateInfo = (CStateInfo)listStatusInfo[iTimeLine];
             for (Int32 i = 0; i < 4; i++)
             {
                 dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(8-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i], null, null });
+                                                  cStateInfo.ListBligStatus[i], "", "" });
             }
             for (Int32 i = 0; i < 2; i++)
             {
                 dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(4-i)+" h.",
                                                   cStateInfo.ListBligStatus[i+4], 
-                                                  cStateInfo.ListNormalBligeeStatus[i], null });
+                                                  cStateInfo.ListNormalBligeeStatus[i], "" });
             }
-            for (Int32 i = 0; i < 2; i++)
+            for (Int32 i = 0; i < 3; i++)
             {
                 dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(2-i)+" h.",
                                                   cStateInfo.ListBligStatus[i+6], 
@@ -144,64 +140,63 @@ namespace AIAssignment1
             foreach (DataGridViewRow row in dgvBlInfo.Rows)
             {
                 CBlStatusDGV blStatusDGV = new CBlStatusDGV(
-                    row.Cells[0].ToString(),
-                    row.Cells[1].ToString(),
-                    row.Cells[2].ToString(),
-                    row.Cells[3].ToString());
+                    row.Cells[0].Value.ToString(),
+                    row.Cells[1].Value.ToString(),
+                    row.Cells[2].Value.ToString(),
+                    row.Cells[3].Value.ToString());
                 listHistoryStatus.Add(blStatusDGV);
             }
             htStatuInfo.Add(iTimeLine, listHistoryStatus);
         }
-        private void displayBlStatusInfoTest(CStateInfo cStateInfo)
-        {
-            
-            for (Int32 i = 0; i < 4; i++)
-            {
-                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(8-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i], null, null });
-            }
-            for (Int32 i = 0; i < 2; i++)
-            {
-                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(4-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i+4], 
-                                                  cStateInfo.ListNormalBligeeStatus[i], null });
-            }
-            for (Int32 i = 0; i < 3; i++)
-            {
-                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(2-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i+6], 
-                                                  cStateInfo.ListNormalBligeeStatus[i+2], 
-                                                  cStateInfo.ListFastBligeeStatus[i]});
-            }
-           
-        }
+
 
         private void btStep_Click(object sender, EventArgs e)
         {
             if (cStateInfo.IServicedPlonks < 1000)
             {
-                
-                cActions.nextAction();
-                iTimeLine++;
-  //              listStatuInfo.Add(cStateInfo.);
-                displayStatusInfo(cStateInfo, iTimeLine);
-                displayBlStatusInfo(cStateInfo, iTimeLine - 1);
+
+                doAll();
                 
             }
         }
 
         private void dgvInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Int32 rowIndex = dgvInfo.CurrentCell.RowIndex;
+            Int32 rowIndex = dgvInfo.CurrentRow.Index;
             redisplayBlStatusInfo(rowIndex);
+            
 //            displayBlStatusInfo(cStateInfo, rowIndex);
         }
 
        
         private void redisplayBlStatusInfo(Int32 rowIndex)
         {
-    //        dgvBlInfo.DataSource = (ArrayList)htStatuInfo[rowIndex];
+            dgvBlInfo.Rows.Clear();
+            ArrayList temp = (ArrayList)htStatuInfo[rowIndex];
+            if(temp != null)
+            {
+                for (Int32 i = 0; i < temp.Count; i++)
+                {
+                    dgvBlInfo.Rows.Add(new Object[]{
+                    ((CBlStatusDGV)temp[i]).Hours,
+                    ((CBlStatusDGV)temp[i]).Bligs,
+                    ((CBlStatusDGV)temp[i]).BligeesNormmal,
+                    ((CBlStatusDGV)temp[i]).BligeesFast
+                });
+                }
+            }
+           
         }
+
+        private void btRun_Click(object sender, EventArgs e)
+        {
+            while (cStateInfo.IServicedPlonks < 1000)
+            {
+                doAll();
+            }
+        }
+
        
+        
     }
 }
