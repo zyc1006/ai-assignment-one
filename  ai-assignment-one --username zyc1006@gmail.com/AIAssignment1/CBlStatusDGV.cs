@@ -9,28 +9,28 @@ namespace AIAssignment1
     {
         private String strHours = "";
 
-        public String StrHours
+        public String Hours
         {
             get { return strHours; }
             set { strHours = value; }
         }
         private String strBlig = "";
 
-        public String StrBlig
+        public String Bligs
         {
             get { return strBlig; }
             set { strBlig = value; }
         }
         private String strBligeeNormmal = "";
 
-        public String StrBligeeNormmal
+        public String BligeesNormmal
         {
             get { return strBligeeNormmal; }
             set { strBligeeNormmal = value; }
         }
         private String strBligeeFast = "";
 
-        public String StrBligeeFast
+        public String BligeesFast
         {
             get { return strBligeeFast; }
             set { strBligeeFast = value; }
