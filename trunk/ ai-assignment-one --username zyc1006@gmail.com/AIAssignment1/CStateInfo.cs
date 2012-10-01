@@ -45,8 +45,8 @@ namespace AIAssignment1
         private Int32 iTimesSBNormal = 0;
 
         private ArrayList listBligStatus = new ArrayList() { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        private ArrayList listFastBligeeStatus = new ArrayList() { 0, 0, 0 };
-        private ArrayList listNormalBligeeStatus = new ArrayList() { 0, 0, 0, 0, 0 };
+        private ArrayList listFastBligeeStatus = new ArrayList() { 0, 0 };
+        private ArrayList listNormalBligeeStatus = new ArrayList() { 0, 0, 0, 0 };
 
 //         public ArrayList listHistoryBlig = new ArrayList();
 //         public ArrayList listHistoryNormalBligee = new ArrayList();

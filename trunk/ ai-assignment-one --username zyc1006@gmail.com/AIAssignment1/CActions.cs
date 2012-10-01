@@ -90,12 +90,12 @@ namespace AIAssignment1
         {
             cStateInfo.ListNormalBligeeStatus.Insert(0, iTimes);
             //recover for immediate display
-            if ((Int32)cStateInfo.ListNormalBligeeStatus[4] != 0)
+            if ((Int32)cStateInfo.ListNormalBligeeStatus[3] != 0)
             {
-                cStateInfo.IBligsUnavailable -= (Int32)cStateInfo.ListNormalBligeeStatus[4];
-                cStateInfo.IBligsAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[4];
-                cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)(cStateInfo.ListNormalBligeeStatus[4]);
-                cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)(cStateInfo.ListNormalBligeeStatus[4]);
+                cStateInfo.IBligsUnavailable -= (Int32)cStateInfo.ListNormalBligeeStatus[3];
+                cStateInfo.IBligsAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[3];
+                cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)(cStateInfo.ListNormalBligeeStatus[3]);
+                cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)(cStateInfo.ListNormalBligeeStatus[3]);
             }
             //resources consumed
             if (iTimes != 0)
@@ -112,12 +112,12 @@ namespace AIAssignment1
         {
             cStateInfo.ListFastBligeeStatus.Insert(0, iTimes * 2);
             //recover for immediate display
-            if ((Int32)cStateInfo.ListFastBligeeStatus[2] != 0)
+            if ((Int32)cStateInfo.ListFastBligeeStatus[1] != 0)
             {
-                cStateInfo.IBligsUnavailable -= (Int32)((Int32)cStateInfo.ListFastBligeeStatus[2] * 0.5);
-                cStateInfo.IBligsAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[2] * 0.5);
-                cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[2]) * 0.5);
-                cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[2]) * 0.5);
+                cStateInfo.IBligsUnavailable -= (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
+                cStateInfo.IBligsAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
+                cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[1]) * 0.5);
+                cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[1]) * 0.5);
             }
             //resources consumed
 
@@ -204,22 +204,22 @@ namespace AIAssignment1
             cStateInfo.IPlinksAvailable += cStateInfo.ITimesServePlonks;
             cStateInfo.IWorkbenchesAvailable += cStateInfo.ITimesServePlonks;
             //Normal
-            cStateInfo.IWorkbenchesAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[4];
-            cStateInfo.IBligeesAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[4];
+            cStateInfo.IWorkbenchesAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[3];
+            cStateInfo.IBligeesAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[3];
   //          cStateInfo.IBligsAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[4];
   //          cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)cStateInfo.ListNormalBligeeStatus[4];
-            if (cStateInfo.ListNormalBligeeStatus.Count == 6)
+            if (cStateInfo.ListNormalBligeeStatus.Count == 5)
             {
-                cStateInfo.ListNormalBligeeStatus.RemoveAt(5);
+                cStateInfo.ListNormalBligeeStatus.RemoveAt(4);
             }
             //Fast
-            cStateInfo.IWorkbenchesAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[2] * 0.5);
-            cStateInfo.IBligeesAvailable += (Int32)cStateInfo.ListFastBligeeStatus[2];
+            cStateInfo.IWorkbenchesAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
+            cStateInfo.IBligeesAvailable += (Int32)cStateInfo.ListFastBligeeStatus[1];
   //          cStateInfo.IBligsAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[2] * 0.5);
   //          cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] -(Int32)((Int32)(cStateInfo.ListFastBligeeStatus[2]) * 0.5);
-            if (cStateInfo.ListFastBligeeStatus.Count == 4)
+            if (cStateInfo.ListFastBligeeStatus.Count == 3)
             {
-                cStateInfo.ListFastBligeeStatus.RemoveAt(3);
+                cStateInfo.ListFastBligeeStatus.RemoveAt(2);
             }
 
             

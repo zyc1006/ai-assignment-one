@@ -128,21 +128,21 @@ namespace AIAssignment1
             dgvBlInfo.Rows.Clear();
          
 //            CStateInfo cStateInfo = (CStateInfo)listStatusInfo[iTimeLine];
-            for (Int32 i = 0; i < 4; i++)
+            for (Int32 i = 0; i < 5; i++)
             {
                 dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(8-i)+" h.",
                                                   cStateInfo.ListBligStatus[i], "", "" });
             }
             for (Int32 i = 0; i < 2; i++)
             {
-                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(4-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i+4], 
+                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(3-i)+" h.",
+                                                  cStateInfo.ListBligStatus[i+5], 
                                                   cStateInfo.ListNormalBligeeStatus[i], "" });
             }
-            for (Int32 i = 0; i < 3; i++)
+            for (Int32 i = 0; i < 2; i++)
             {
-                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(2-i)+" h.",
-                                                  cStateInfo.ListBligStatus[i+6], 
+                dgvBlInfo.Rows.Add(new Object[] { Convert.ToString(1-i)+" h.",
+                                                  cStateInfo.ListBligStatus[i+7], 
                                                   cStateInfo.ListNormalBligeeStatus[i+2], 
                                                   cStateInfo.ListFastBligeeStatus[i]});
             }
