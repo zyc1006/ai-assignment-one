@@ -33,11 +33,19 @@ namespace AIAssignment1
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
+            foreach (DataGridViewColumn column in dgvAction.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
         }
 
         private void btStart_Click(object sender, EventArgs e)
         {
             lbMessage.Text = "";
+            dgvInfo.Rows.Clear();
+            dgvBlInfo.Rows.Clear();
+            dgvAction.Rows.Clear();
             if (!initializeState())
             {
                 return;
@@ -68,12 +76,14 @@ namespace AIAssignment1
                 cStateInfo.IBligeesAvailable = Convert.ToInt32(txTotalBlige.Text);
                 cStateInfo.IPlinksAvailable = Convert.ToInt32(txTotalPl.Text);
                 cStateInfo.IWorkbenchesAvailable = Convert.ToInt32(txTotalWb.Text);
-                cStateInfo.IBligsAvailable = Convert.ToInt32(txTotalBlig.Text);
+                //cStateInfo.IBligsAvailable = Convert.ToInt32(txTotalBlig.Text);
+                cStateInfo.IBligsUnavailable = Convert.ToInt32(txTotalBlig.Text);
                 cStateInfo.IBligTotal = Convert.ToInt32(txTotalBlig.Text);
-                cStateInfo.ListBligStatus[0] = cStateInfo.IBligsAvailable;
-                if (cStateInfo.ISpunkeesAvailable < 1 || cStateInfo.IBligsAvailable < 1 ||
+                //cStateInfo.ListBligStatus[0] = cStateInfo.IBligsAvailable;
+                cStateInfo.ListBligStatus[8] = cStateInfo.IBligsUnavailable;
+                if (cStateInfo.ISpunkeesAvailable < 1 || cStateInfo.IBligeesAvailable < 1 ||
                     cStateInfo.IPlinksAvailable < 1 || cStateInfo.IWorkbenchesAvailable < 1 ||
-                    cStateInfo.IBligsAvailable < 1)
+                    cStateInfo.IBligTotal < 1)
                 {
                     return false;
                 }
@@ -93,6 +103,7 @@ namespace AIAssignment1
         {
             cActions.nextAction();
             iTimeLine++;
+            displayActionInfo(cStateInfo, iTimeLine);
             displayStatusInfo(cStateInfo, iTimeLine);
             displayBlStatusInfo(cStateInfo, iTimeLine - 1);
         }
@@ -158,6 +169,8 @@ namespace AIAssignment1
                 doAll();
                 
             }
+            
+
         }
 
         private void dgvInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -193,6 +206,29 @@ namespace AIAssignment1
             while (cStateInfo.IServicedPlonks < 1000)
             {
                 doAll();
+            }
+            btRun.Enabled = false;
+            btStep.Enabled = false;
+            btStart.Enabled = true;
+            txTotalBlig.Enabled = true;
+            txTotalBlige.Enabled = true;
+            txTotalPl.Enabled = true;
+            txTotalSp.Enabled = true;
+            txTotalWb.Enabled = true;
+            
+        }
+
+        private void displayActionInfo(CStateInfo cStateInfo, Int32 iTimeline)
+        {
+            dgvAction.Rows.Add(new Object[]{iTimeLine,
+                                            cStateInfo.ITimesMakeSpunks,
+                                            cStateInfo.SBNormalTimes,
+                                            cStateInfo.SBFastTimes,
+                                            cStateInfo.ITimesFindPlonks,
+                                            cStateInfo.ITimesServePlonks});
+            if (iTimeLine - 4 > 0)
+            {
+                dgvAction.FirstDisplayedScrollingRowIndex = iTimeLine - 4;
             }
         }
 

@@ -35,11 +35,14 @@ namespace AIAssignment1
         }
 
         private Int32 iUnservicedBligs = 0;
+        
+        private Int32 iBligTotal = 0;
+        //Times
         private Int32 iTimesMakeSpunks = 0;
         private Int32 iTimesFindPlonks = 0;
         private Int32 iTimesServePlonks = 0;
-        private Int32 iBligTotal = 0;
-
+        private Int32 iTimesSBFast = 0;
+        private Int32 iTimesSBNormal = 0;
 
         private ArrayList listBligStatus = new ArrayList() { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         private ArrayList listFastBligeeStatus = new ArrayList() { 0, 0, 0 };
@@ -55,13 +58,22 @@ namespace AIAssignment1
             get { return listBligsUsedLastTime; }
             set { listBligsUsedLastTime = value; }
         }
-
+        public Int32 SBNormalTimes
+        {
+            get { return iTimesSBNormal; }
+            set { iTimesSBNormal = value; }
+        }
+       
         public Int32 IBligTotal
         {
             get { return iBligTotal; }
             set { iBligTotal = value; }
         }
-        
+        public Int32 SBFastTimes
+        {
+            get { return iTimesSBFast; }
+            set { iTimesSBFast = value; }
+        }
         public System.Int32 ITimesMakeSpunks
         {
             get { return iTimesMakeSpunks; }
