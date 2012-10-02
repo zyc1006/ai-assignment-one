@@ -6,24 +6,34 @@ using System.Collections;
 
 namespace AIAssignment1
 {
+    /// <summary>
+    /// Used to track a state and perform operations upon it.
+    /// </summary>
     class CActions
     {
-        
-        public CActions(CStateInfo cStateInfo)
-        {
-            mStateInfo = cStateInfo;
-        }
-        private static CStateInfo mStateInfo = null;
         private static Int32 MAKE_SPUNKS_SPEED = 50;
         private static Int32 FIND_PLONKS_SPEED = 10;
         private static Int32 SERVE_PLONKS_SPEED = 5;
         private static Int32 SPUNKS_CONSUMED_FOR_FINDING_PLONKS = 10;
-        private static Int32 SPUNKS_CONSUMED_FOR_SERVING_PLONGKS = 20;
+        private static Int32 SPUNKS_CONSUMED_FOR_SERVING_PLONKS = 20;
         private static Int32 SPUNKS_CONSUMED_FOR_NORMAL_SERVING_BLIGS = 20;
         private static Int32 SPUNKS_CONSUMED_FOR_FAST_SERVING_BLIGS = 40;
         private static Int32 UNS_PLONKS_CONSUMED_FOR_SEVING_PLONKS = 5;
-        
 
+        /// <summary>
+        /// State to operate on.
+        /// </summary>
+        private CStateInfo mStateInfo = null;
+
+        public CActions(CStateInfo cStateInfo)
+        {
+            mStateInfo = cStateInfo;
+        }
+        
+        /// <summary>
+        /// Calculates and performes the next set of possible actions
+        /// on the current state.
+        /// </summary>
         public void nextAction()
         {
             recoverResources(mStateInfo);
@@ -33,6 +43,13 @@ namespace AIAssignment1
             serveBligsNormal(mStateInfo, whetherServeBligsNormal(mStateInfo));
             makeSpunks(mStateInfo, whetherMakeSpunks(mStateInfo));
         }
+
+        /// <summary>
+        /// Calculates the number of "make spunks" operations that
+        /// can be performed given the resources of the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform calculation on.</param>
+        /// <returns>Number of "make spunks" opertations that can be performed</returns>
         Int32 whetherMakeSpunks(CStateInfo cStateInfo)
         {
             cStateInfo.ITimesMakeSpunks = Math.Min(cStateInfo.IWorkbenchesAvailable,
@@ -41,6 +58,12 @@ namespace AIAssignment1
            // cStateInfo.MStimes = cStateInfo.ITimesMakeSpunks;
             return cStateInfo.ITimesMakeSpunks;
         }
+        /// <summary>
+        /// Calculates the number of "Service blig" operations that
+        /// can be performed given the resources of the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform calculation on.</param>
+        /// <returns>Number of "service blig" opertations that can be performed</returns>
         Int32 whetherServeBligsNormal(CStateInfo cStateInfo)
         {
             Int32 BligeesLimit = (Int32)(cStateInfo.IBligeesAvailable);
@@ -53,6 +76,12 @@ namespace AIAssignment1
             return cStateInfo.SBNormalTimes;
 
         }
+        /// <summary>
+        /// Calculates the number of "service blig quickly" operations that
+        /// can be performed given the resources of the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform calculation on.</param>
+        /// <returns>Number of "service blig quickly" opertations that can be performed</returns>
         Int32 whetherServeBligsFast(CStateInfo cStateInfo)
         {
            
@@ -67,9 +96,15 @@ namespace AIAssignment1
             cStateInfo.IBligsToBeServiced -= cStateInfo.SBFastTimes;
             return cStateInfo.SBFastTimes;
         }
+        /// <summary>
+        /// Calculates the number of "service plonks" operations that
+        /// can be performed given the resources of the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform calculation on.</param>
+        /// <returns>Number of "service plonks" opertations that can be performed</returns>
         Int32 whetherServePlonks(CStateInfo cStateInfo)
         {
-            Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_SERVING_PLONGKS);
+            Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_SERVING_PLONKS);
             Int32 UnsPlonksLimit = (Int32)(cStateInfo.IUnservicedPlonks / UNS_PLONKS_CONSUMED_FOR_SEVING_PLONKS);
 
             Int32 tempMin1 = Math.Min(SpunksLimit, UnsPlonksLimit);
@@ -79,6 +114,12 @@ namespace AIAssignment1
             return cStateInfo.ITimesServePlonks;
 
         }
+        /// <summary>
+        /// Calculates the number of "find plonks" operations that
+        /// can be performed given the resources of the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform calculation on.</param>
+        /// <returns>Number of "find plonk" opertations that can be performed</returns>
         Int32 whetherFindPlonks(CStateInfo cStateInfo)
         {
             //1000 unserviced plonks
@@ -91,12 +132,22 @@ namespace AIAssignment1
          //   cStateInfo.IPlinksAvailable -= cStateInfo.ITimesFindPlonks;
             return cStateInfo.ITimesFindPlonks;
         }
+        /// <summary>
+        /// Perfoms a number of "make spunk" operations on the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform actions on.</param>
+        /// <param name="iTimes">Number of times to repeat the action.</param>
         void makeSpunks(CStateInfo cStateInfo, Int32 iTimes)
         {
             cStateInfo.ISpunks += MAKE_SPUNKS_SPEED * iTimes;
             cStateInfo.IWorkbenchesAvailable -= iTimes;
             cStateInfo.ISpunkeesAvailable -= iTimes;
         }
+        /// <summary>
+        /// Perfoms a number of "service blig" operations on the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform actions on.</param>
+        /// <param name="iTimes">Number of times to repeat the action.</param>
         void serveBligsNormal(CStateInfo cStateInfo, Int32 iTimes)
         {
             cStateInfo.ListNormalBligeeStatus.Insert(0, iTimes);
@@ -116,9 +167,14 @@ namespace AIAssignment1
                 cStateInfo.ISpunks -= SPUNKS_CONSUMED_FOR_NORMAL_SERVING_BLIGS * iTimes;
                 
             }
-           
-            
+
+
         }
+        /// <summary>
+        /// Perfoms a number of "service bligs quickly" operations on the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform actions on.</param>
+        /// <param name="iTimes">Number of times to repeat the action.</param>
         void serveBligsFast(CStateInfo cStateInfo, Int32 iTimes)
         {
             cStateInfo.ListFastBligeeStatus.Insert(0, iTimes * 2);
@@ -139,8 +195,13 @@ namespace AIAssignment1
                 cStateInfo.ISpunks -= SPUNKS_CONSUMED_FOR_FAST_SERVING_BLIGS * iTimes;
                 
             }
-           
+
         }
+        /// <summary>
+        /// Perfoms a number of "find plonks" operations on the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform actions on.</param>
+        /// <param name="iTimes">Number of times to repeat the action.</param>
         void findPlonks(CStateInfo cStateInfo, Int32 iTimes)
         {
             if (iTimes != 0)
@@ -150,8 +211,13 @@ namespace AIAssignment1
                 cStateInfo.IPlinksAvailable -= iTimes;
                 cStateInfo.ITotalUnservicedPlonks += FIND_PLONKS_SPEED * iTimes;
             }
-           
+
         }
+        /// <summary>
+        /// Perfoms a number of "service plonks" operations on the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to perform actions on.</param>
+        /// <param name="iTimes">Number of times to repeat the action.</param>
         void servePlonks(CStateInfo cStateInfo, Int32 iTimes)
         {
             if (iTimes != 0)
@@ -160,7 +226,7 @@ namespace AIAssignment1
                 cStateInfo.IUnservicedPlonks -= UNS_PLONKS_CONSUMED_FOR_SEVING_PLONKS * iTimes;
                 cStateInfo.IPlinksAvailable -= iTimes;
                 cStateInfo.IWorkbenchesAvailable -= iTimes;
-                cStateInfo.ISpunks -= SPUNKS_CONSUMED_FOR_SERVING_PLONGKS * iTimes;
+                cStateInfo.ISpunks -= SPUNKS_CONSUMED_FOR_SERVING_PLONKS * iTimes;
 
                 //codes for bligs
                 for (Int32 i = 0; i < cStateInfo.ListBligStatus.Count - 1 && iTimes != 0; i++)
@@ -203,6 +269,12 @@ namespace AIAssignment1
            
            
         }
+        
+        /// <summary>
+        /// Checks a state to see if there are any allocated resources
+        /// that can be freed, and restores them when found.
+        /// </summary>
+        /// <param name="cStateInfo">State to check.</param>
         void recoverResources(CStateInfo cStateInfo)
         {
             //last time unavailable bligs
