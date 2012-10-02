@@ -40,6 +40,11 @@ namespace AIAssignment1
         public Int32 IBligsUnavailableLastTime = 0;
 
         /// <summary>
+        /// Number of Bligs to be serviced. It will decrease after each SBF action.
+        /// It is used for SBN action.
+        public Int32 IBligsToBeServiced = 0;
+        /// </summary>
+        /// <summary>
         /// Number of bligees available for maintenance.
         /// </summary>
         public Int32 IBligeesAvailable = 0;
@@ -108,6 +113,16 @@ namespace AIAssignment1
         /// reach this state from the previous one.
         /// </summary>
         public Int32 ITimesServePlonks = 0;
-       
+        /// <summary>
+        /// Total number of nServiced plonk
+        /// </summary>
+        public Int32 ITotalUnservicedPlonks = 0;
+
+        /// <summary>
+        /// Total number of bligs under serving
+        /// </summary>
+        /// 
+        public Int32 IBligsUnderServing = 0;
+        
     }
 }

@@ -104,7 +104,8 @@ namespace AIAssignment1
             dgvInfo.Rows.Clear();
             dgvBlInfo.Rows.Clear();
             dgvAction.Rows.Clear();
-            cStateInfo.IServicedPlonks = 0;
+            
+
             iTimeLine = 0;
             
             try
