@@ -14,21 +14,21 @@ namespace AIAssignment1
         
          //Calculate number of actions
  //Servicing Plonks
- int nSP = (1000-cStateInfo.IServicedPlonks)/5;
+ int NSP = (1000-cStateInfo.IServicedPlonks)/5;
  //Finding Plonks
- int nFP = (1000- cStateInfo.IServicedPlonks - cStateInfo.IUnservicedPlonks )/10;
+ int NFP = (1000- cStateInfo.IServicedPlonks - cStateInfo.IUnservicedPlonks )/10;
  //Servicing Bligs
  int Bh = 0;
  foreach(TB){
  Bh = Bh + TB[i];}
- int nSB = (nSP-Bh)/8;
+ int NSB = (NSP-Bh)/8;
  //Making Spunks
- int nMS = (20nSP+10nFP+20nSB- cStateInfo.ISpunks )/50;
+ int NMS = (20*NSP+10*NFP+20*NSB- cStateInfo.ISpunks )/50;
 
  //Calculate TW-hours
- int TWh = (nMS + 2nSB+nSP)/ cStateInfo.IWorkbenchesAvailable ;
+ int TWh = (NMS + 2*NSB+NSP)/ cStateInfo.IWorkbenchesAvailable ;
  //and Plink-hours
- int EPh = (nSP+nFP)/ cStateInfo.IPlinksAvailable ;
+ int EPh = (NSP+NFP)/ cStateInfo.IPlinksAvailable ;
   if(EPh > TWh){return EPh;}
   return TWh;
  }
