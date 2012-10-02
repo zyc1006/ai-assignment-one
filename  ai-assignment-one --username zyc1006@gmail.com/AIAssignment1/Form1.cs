@@ -16,11 +16,11 @@ namespace AIAssignment1
         private CStateInfo cStateInfo = null;
         private CActions cActions = null;
         private Int32 iTimeLine = 0;
-        private Hashtable htStatuInfo = new Hashtable();
+        private Hashtable htStatuInfo;
         public Form1()
         {
             InitializeComponent();
-            cStateInfo = new CStateInfo();
+            
             dgvInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //Notsortable
             foreach (DataGridViewColumn column in dgvInfo.Columns)
@@ -50,10 +50,9 @@ namespace AIAssignment1
          */
         private void btStart_Click(object sender, EventArgs e)
         {
-            lbMessage.Text = "";
-            dgvInfo.Rows.Clear();
-            dgvBlInfo.Rows.Clear();
-            dgvAction.Rows.Clear();
+            
+           
+
             if (!initializeState())
             {
                 return;
@@ -66,7 +65,7 @@ namespace AIAssignment1
             btStart.Enabled = false;
             btStep.Enabled = true;
             btRun.Enabled = true;
-            cStateInfo.IServicedPlonks = 0;
+            
     //        displayStatusInfo(cStateInfo, iTimeLine);
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
         }
@@ -99,6 +98,15 @@ namespace AIAssignment1
          */
         private Boolean initializeState()
         {
+            cStateInfo = new CStateInfo();
+            htStatuInfo = new Hashtable();
+            lbMessage.Text = "";
+            dgvInfo.Rows.Clear();
+            dgvBlInfo.Rows.Clear();
+            dgvAction.Rows.Clear();
+            cStateInfo.IServicedPlonks = 0;
+            iTimeLine = 0;
+            
             try
             {
 
