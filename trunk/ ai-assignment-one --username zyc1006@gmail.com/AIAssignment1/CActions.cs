@@ -48,18 +48,22 @@ namespace AIAssignment1
             Int32 tempMin1 = Math.Min(BligeesLimit, SpunksLimit);
             Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligsToBeServiced, cStateInfo.IWorkbenchesAvailable);
             cStateInfo.SBNormalTimes = Math.Min(tempMin1, tempMin2);
+            cStateInfo.IBligsUnderServing += cStateInfo.SBNormalTimes;
+            cStateInfo.IBligsUnavailable -= cStateInfo.SBNormalTimes;
             return cStateInfo.SBNormalTimes;
 
         }
         Int32 whetherServeBligsFast(CStateInfo cStateInfo)
         {
-
+           
             Int32 BligeesLimit = (Int32)(cStateInfo.IBligeesAvailable / 2);
             Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_FAST_SERVING_BLIGS);
             Int32 tempMin1 = Math.Min(BligeesLimit, SpunksLimit);
-            Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligsUnavailable, cStateInfo.IWorkbenchesAvailable);
+            Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligTotal - cStateInfo.IBligsUnderServing - cStateInfo.IBligsAvailable, cStateInfo.IWorkbenchesAvailable);
             cStateInfo.SBFastTimes = Math.Min(tempMin1, tempMin2);
-            cStateInfo.IBligsToBeServiced = cStateInfo.IBligsUnavailable;
+            cStateInfo.IBligsToBeServiced = cStateInfo.IBligTotal - cStateInfo.IBligsUnderServing - cStateInfo.IBligsAvailable;
+            cStateInfo.IBligsUnavailable -= cStateInfo.SBFastTimes;
+            cStateInfo.IBligsUnderServing += cStateInfo.SBFastTimes;
             cStateInfo.IBligsToBeServiced -= cStateInfo.SBFastTimes;
             return cStateInfo.SBFastTimes;
         }
@@ -77,6 +81,11 @@ namespace AIAssignment1
         }
         Int32 whetherFindPlonks(CStateInfo cStateInfo)
         {
+            //1000 unserviced plonks
+//             if (cStateInfo.ITotalUnservicedPlonks >= 1000)
+//             {
+//                 return 0;
+//             }
             Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_FINDING_PLONKS);
             cStateInfo.ITimesFindPlonks = Math.Min(SpunksLimit, cStateInfo.IPlinksAvailable);
          //   cStateInfo.IPlinksAvailable -= cStateInfo.ITimesFindPlonks;
@@ -94,7 +103,7 @@ namespace AIAssignment1
             //recover for immediate display
             if ((Int32)cStateInfo.ListNormalBligeeStatus[3] != 0)
             {
-                cStateInfo.IBligsUnavailable -= (Int32)cStateInfo.ListNormalBligeeStatus[3];
+                cStateInfo.IBligsUnderServing -= (Int32)cStateInfo.ListNormalBligeeStatus[3];
                 cStateInfo.IBligsAvailable += (Int32)cStateInfo.ListNormalBligeeStatus[3];
                 cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)(cStateInfo.ListNormalBligeeStatus[3]);
                 cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)(cStateInfo.ListNormalBligeeStatus[3]);
@@ -116,7 +125,7 @@ namespace AIAssignment1
             //recover for immediate display
             if ((Int32)cStateInfo.ListFastBligeeStatus[1] != 0)
             {
-                cStateInfo.IBligsUnavailable -= (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
+                cStateInfo.IBligsUnderServing -= (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
                 cStateInfo.IBligsAvailable += (Int32)((Int32)cStateInfo.ListFastBligeeStatus[1] * 0.5);
                 cStateInfo.ListBligStatus[8] = (Int32)cStateInfo.ListBligStatus[8] - (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[1]) * 0.5);
                 cStateInfo.ListBligStatus[0] = (Int32)cStateInfo.ListBligStatus[0] + (Int32)((Int32)(cStateInfo.ListFastBligeeStatus[1]) * 0.5);
@@ -139,6 +148,7 @@ namespace AIAssignment1
                 cStateInfo.IUnservicedPlonks += FIND_PLONKS_SPEED * iTimes;
                 cStateInfo.ISpunks -= SPUNKS_CONSUMED_FOR_FINDING_PLONKS * iTimes;
                 cStateInfo.IPlinksAvailable -= iTimes;
+                cStateInfo.ITotalUnservicedPlonks += FIND_PLONKS_SPEED * iTimes;
             }
            
         }
@@ -198,7 +208,7 @@ namespace AIAssignment1
             //last time unavailable bligs
             cStateInfo.IBligsUnavailable += cStateInfo.IBligsUnavailableLastTime;
             cStateInfo.IBligsUnavailableLastTime = 0;
-            cStateInfo.IBligsAvailable = cStateInfo.IBligTotal - cStateInfo.IBligsUnavailable;
+            cStateInfo.IBligsAvailable = cStateInfo.IBligTotal - cStateInfo.IBligsUnavailable - cStateInfo.IBligsUnderServing;
             //other resources
             cStateInfo.ISpunkeesAvailable += cStateInfo.ITimesMakeSpunks;
             cStateInfo.IWorkbenchesAvailable += cStateInfo.ITimesMakeSpunks;
