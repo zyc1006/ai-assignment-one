@@ -46,7 +46,7 @@ namespace AIAssignment1
             Int32 BligeesLimit = (Int32)(cStateInfo.IBligeesAvailable);
             Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_NORMAL_SERVING_BLIGS);
             Int32 tempMin1 = Math.Min(BligeesLimit, SpunksLimit);
-            Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligsUnavailable, cStateInfo.IWorkbenchesAvailable);
+            Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligsToBeServiced, cStateInfo.IWorkbenchesAvailable);
             cStateInfo.SBNormalTimes = Math.Min(tempMin1, tempMin2);
             return cStateInfo.SBNormalTimes;
 
@@ -59,6 +59,8 @@ namespace AIAssignment1
             Int32 tempMin1 = Math.Min(BligeesLimit, SpunksLimit);
             Int32 tempMin2 = Math.Min((Int32)cStateInfo.IBligsUnavailable, cStateInfo.IWorkbenchesAvailable);
             cStateInfo.SBFastTimes = Math.Min(tempMin1, tempMin2);
+            cStateInfo.IBligsToBeServiced = cStateInfo.IBligsUnavailable;
+            cStateInfo.IBligsToBeServiced -= cStateInfo.SBFastTimes;
             return cStateInfo.SBFastTimes;
         }
         Int32 whetherServePlonks(CStateInfo cStateInfo)
