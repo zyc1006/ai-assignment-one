@@ -66,6 +66,7 @@ namespace AIAssignment1
             btStart.Enabled = false;
             btStep.Enabled = true;
             btRun.Enabled = true;
+            cStateInfo.IServicedPlonks = 0;
     //        displayStatusInfo(cStateInfo, iTimeLine);
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
         }
