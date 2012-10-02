@@ -40,6 +40,14 @@ namespace AIAssignment1
             }
         }
 
+        /**
+         * <summary>
+         * Performed when the "Start" button is clicked.
+         * Disables all input fields, clears the message-box,
+         * empties all lists and ernables the "Step" and "Run"
+         * buttons.
+         * </summary>
+         */
         private void btStart_Click(object sender, EventArgs e)
         {
             lbMessage.Text = "";
@@ -62,11 +70,32 @@ namespace AIAssignment1
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
         }
 
+        /**
+         * <summary>
+         *  Checks the contents of the input fields for validity.
+         *  Input is valid if all fields are nonempty and contain
+         *  only non-negative integers adding up to no more than 50.
+         * </summary>
+         * <returns>
+         *  False if any of the conditions for valid input have been
+         *  violated, returns true otherwise.
+         * </returns>
+         */
         private Boolean validateInput()
         {
             return true;
         }
 
+        /**
+         * <summary>
+         *  Attempts to initialize a state object with the values provided in
+         *  the input fields, and uses it to produce a new CActions object
+         *  for this form.
+         * </summary>
+         * <returns>
+         *  True if the initialization was successful, false otherwise.
+         * </returns>
+         */
         private Boolean initializeState()
         {
             try
@@ -99,6 +128,13 @@ namespace AIAssignment1
 
         }
 
+        /**
+         * <summary>
+         *  Prompts the CAction object to identify and perform
+         *  the set of actions for the next hour and displays
+         *  the result in the lists.
+         * </summary>
+         */
         private void doAll()
         {
             cActions.nextAction();
@@ -108,6 +144,13 @@ namespace AIAssignment1
             displayBlStatusInfo(cStateInfo, iTimeLine - 1);
         }
 
+        /**
+         * <summary>
+         *  Displays status information about the given state, indexed by the provided time-stamp.
+         * </summary>
+         * <param name="cStateInfo">State to print information about.</param>
+         * <param name="iTimeLine">Timestamp equivalent to the hour of production when we would be in the given state.</param>
+         */
         private void displayStatusInfo(CStateInfo cStateInfo, Int32 iTimeLine)
         {
 
@@ -122,6 +165,15 @@ namespace AIAssignment1
             
         }
 
+        /**
+         * <summary>
+         *  Displays status information about the bligs and bligees of the given state,
+         *  indexed by the provided time-stamp.
+         * </summary>
+         * <param name="cStateInfo">State to print information about.</param>
+         * <param name="iTimeLine">Timestamp equivalent to the hour of production when we would be in the given state.</param>
+         * 
+         */
         private void displayBlStatusInfo(CStateInfo cStateInfo, Int32 iTimeLine)
         {
          
@@ -160,7 +212,14 @@ namespace AIAssignment1
             htStatuInfo.Add(iTimeLine, listHistoryStatus);
         }
 
-
+        /**
+         * <summary>
+         * Performed when the "Step" button is clicked.
+         * Prompts the search to advance by 1 hour if the
+         * number of serviced plonks is less than 1000,
+         * otherwise does nothing.
+         * </summary>
+         */
         private void btStep_Click(object sender, EventArgs e)
         {
             if (cStateInfo.IServicedPlonks < 1000)
@@ -173,6 +232,13 @@ namespace AIAssignment1
 
         }
 
+        /**
+         * <summary>
+         *  Fires when a cell in the status list is clicked.
+         *  Updates the blig status display with information
+         *  for the time of that row.
+         * </summary>
+         */
         private void dgvInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Int32 rowIndex = dgvInfo.CurrentRow.Index;
@@ -181,7 +247,14 @@ namespace AIAssignment1
 //            displayBlStatusInfo(cStateInfo, rowIndex);
         }
 
-       
+       /**
+        * <summary>
+        *   Displays the blig-information for the given time.
+        * </summary>
+        * <param name="rowIndex">
+        *   Time for which we should display blig information. This value coincides with the row index.
+        * </param>
+        */
         private void redisplayBlStatusInfo(Int32 rowIndex)
         {
             dgvBlInfo.Rows.Clear();
@@ -201,6 +274,12 @@ namespace AIAssignment1
            
         }
 
+        /**
+         * <summary>
+         *  Fires when the "Run" button is clicked.
+         *  Advances the search until the goal is reached.
+         * </summary>
+         */
         private void btRun_Click(object sender, EventArgs e)
         {
             while (cStateInfo.IServicedPlonks < 1000)
@@ -218,6 +297,14 @@ namespace AIAssignment1
             
         }
 
+        /**
+         * <summary>
+         *  Adds the actions performed to reach the given state to the
+         *  list of actions performed with the given timestamp as index.
+         * </summary>
+         * <param name="cStateInfo">State to display actions for.</param>
+         * <param name="iTimeline">Timestamp equivalent to the hour of production when we would be in the given state.</param>
+         */
         private void displayActionInfo(CStateInfo cStateInfo, Int32 iTimeline)
         {
             dgvAction.Rows.Add(new Object[]{iTimeLine,
