@@ -5,11 +5,11 @@ using System.Text;
 
 namespace AIAssignment1.Basics
 {
-    /**
-     * <summary>
-     * Basic class that can be extended to match any class of objects in the problem domain model.
-     * </summary>
-     */
+    ///
+    /// <summary>
+    /// Basic class that can be extended to match any class of objects in the problem domain model.
+    /// </summary>
+    ///
     public class AIA1Object
     {
         private static Dictionary<string, AIA1Object> byName = new Dictionary<string, AIA1Object>();
@@ -18,13 +18,13 @@ namespace AIAssignment1.Basics
         public string Name { get; private set; }
         public string Abbr { get; private set; }
 
-        /**
-         * <summary>
-         * Creates a new AIA1Object with the given name and abbreviation.
-         * If There is already an object with the given name or abbreviation,
-         * an exception will be thrown.
-         * </summary>
-         */
+        ///
+        /// <summary>
+        /// Creates a new AIA1Object with the given name and abbreviation.
+        /// If There is already an object with the given name or abbreviation,
+        /// an exception will be thrown.
+        /// </summary>
+        ///
         public AIA1Object(string name, string abbr)
         {
             Name = name;
@@ -41,11 +41,11 @@ namespace AIAssignment1.Basics
             byAbbr.Add(Abbr, this);
         }
 
-        /**
-         * <summary>
-         * Returns the AIA1Object with the given name, or null if no such object exists.
-         * </summary>
-         */
+        ///
+        /// <summary>
+        /// Returns the AIA1Object with the given name, or null if no such object exists.
+        /// </summary>
+        ///
         public static AIA1Object getByName(string name)
         {
             try
@@ -56,11 +56,11 @@ namespace AIAssignment1.Basics
             }
         }
 
-        /**
-         * <summary>
-         * Returns the AIA1Object with the given abbreviation, or null if no such object exists.
-         * </summary>
-         */
+        ///
+        /// <summary>
+        /// Returns the AIA1Object with the given abbreviation, or null if no such object exists.
+        /// </summary>
+        ///
         public static AIA1Object getByAbbr(string abbr)
         {
             try
