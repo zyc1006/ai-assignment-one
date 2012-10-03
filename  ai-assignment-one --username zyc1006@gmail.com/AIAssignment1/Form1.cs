@@ -14,14 +14,17 @@ namespace AIAssignment1
     {
      
         private CStateInfo cStateInfo = null;
-        private CActions cActions = null;
+        private IWalker cActions = null;
         private Int32 iTimeLine = 0;
         private Hashtable htStatuInfo;
         public Form1()
         {
             InitializeComponent();
-            
+
             dgvInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBlInfo.Enabled = false;
+            dgvAction.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             //Notsortable
             foreach (DataGridViewColumn column in dgvInfo.Columns)
             {
@@ -220,6 +223,8 @@ namespace AIAssignment1
                 listHistoryStatus.Add(blStatusDGV);
             }
             htStatuInfo.Add(iTimeLine, listHistoryStatus);
+
+            dgvBlInfo.ClearSelection();
         }
 
         /**
@@ -240,21 +245,6 @@ namespace AIAssignment1
             }
             
 
-        }
-
-        /**
-         * <summary>
-         *  Fires when a cell in the status list is clicked.
-         *  Updates the blig status display with information
-         *  for the time of that row.
-         * </summary>
-         */
-        private void dgvInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            Int32 rowIndex = dgvInfo.CurrentRow.Index;
-            redisplayBlStatusInfo(rowIndex);
-            
-//            displayBlStatusInfo(cStateInfo, rowIndex);
         }
 
        /**
@@ -281,6 +271,7 @@ namespace AIAssignment1
                 });
                 }
             }
+            dgvBlInfo.ClearSelection();
            
         }
 
@@ -329,7 +320,77 @@ namespace AIAssignment1
             }
         }
 
-       
+        /// <summary>
+        /// Fires when a row in the status display is selected.
+        /// Updates the blig status display with information
+        /// for the time of that row and displays the that time
+        /// in the actions display.
+        /// </summary>
+        private void dgvInfo_SelectionChanged(object sender, EventArgs e)
+        {
+            display_selectionChanged(sender as DataGridView);
+        }
+
+        /// <summary>
+        /// Fires when a row in the actions display is selected.
+        /// Updates the blig status display with information
+        /// for the time of that row and displays the that time
+        /// in the status display.
+        /// </summary>
+        private void dgvAction_SelectionChanged(object sender, EventArgs e)
+        {
+            display_selectionChanged(sender as DataGridView);
+        }
+
+        /// <summary>
+        /// Used to prevent infinite recursion when
+        /// changing selection in either the status
+        /// display or action display
+        /// </summary>
+        private bool selectionHandlerActive = true;
+
+        /// <summary>
+        /// Tries to identify the given DataGridView as either
+        /// the status display or the actions display. If the
+        /// view can be identifed: updates the selection of the
+        /// other view to match and updates the blig display with
+        /// information for the hour of the selected row.
+        /// </summary>
+        /// <param name="dgv"></param>
+        private void display_selectionChanged(DataGridView dgv){
+            if (dgv == null || dgv.CurrentRow == null || !selectionHandlerActive)
+                return;
+
+            selectionHandlerActive = false;
+
+            DataGridView dgv2;
+
+            if (dgv == dgvInfo)
+                dgv2 = dgvAction;
+            else if (dgv == dgvAction)
+                dgv2 = dgvInfo;
+            else
+            {
+                selectionHandlerActive = true;
+                return;
+            }
+
+            Int32 rowIndex = dgv.CurrentRow.Index;
+            redisplayBlStatusInfo(rowIndex);
+
+            try
+            {
+                dgv2.FirstDisplayedScrollingRowIndex = rowIndex;
+                dgv2.ClearSelection();
+                dgv2.Rows[rowIndex].Selected = true;
+            }
+            catch (Exception)
+            {
+                // We failed to select the row in the status display. Oh well...
+            }
+
+            selectionHandlerActive = true;
+        }
         
     }
 }

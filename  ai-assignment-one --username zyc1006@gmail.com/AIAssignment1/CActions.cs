@@ -9,7 +9,7 @@ namespace AIAssignment1
     /// <summary>
     /// Used to track a state and perform operations upon it.
     /// </summary>
-    class CActions
+    class CActions : IWalker
     {
         private static Int32 MAKE_SPUNKS_SPEED = 50;
         private static Int32 FIND_PLONKS_SPEED = 10;
@@ -25,6 +25,10 @@ namespace AIAssignment1
         /// </summary>
         private CStateInfo mStateInfo = null;
 
+        /// <summary>
+        /// Creates a new CAction object starting in the given state.
+        /// </summary>
+        /// <param name="cStateInfo">State to start walking from.</param>
         public CActions(CStateInfo cStateInfo)
         {
             mStateInfo = cStateInfo;
