@@ -10,7 +10,7 @@ namespace AIAssignment1
     class HFunction
     {
 
-        public Int32 HFunction(CStateInfo cStateInfo)
+        public Int32 calc(CStateInfo cStateInfo)
         {
 
             //Calculate number of actions
