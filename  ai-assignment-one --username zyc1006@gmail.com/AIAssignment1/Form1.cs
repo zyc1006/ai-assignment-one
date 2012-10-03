@@ -199,28 +199,28 @@ namespace AIAssignment1
         /// </summary>
         private void printExcess()
         {
-            int avgESp = 0;
-            int avgEB = 0;
-            int avgEP = 0;
-            int avgTW = 0;
-            int avgTB = 0;
+            float avgESp = 0;
+            float avgEB = 0;
+            float avgEP = 0;
+            float avgTW = 0;
+            float avgTB = 0;
 
             foreach (KeyValuePair<Int32, CStateInfo> kvp in oldStates)
             {
-                avgESp = (avgESp + kvp.Value.ISpunkeesAvailable) / 2;
-                avgEB = (avgEB + kvp.Value.IBligeesAvailable) / 2;
-                avgEP = (avgEP + kvp.Value.IPlinksAvailable) / 2;
-                avgTW = (avgTW + kvp.Value.IWorkbenchesAvailable) / 2;
-                avgTB = (avgTB + kvp.Value.IBligsAvailable) / 2;
+                avgESp += kvp.Value.ISpunkeesAvailable;
+                avgEB += kvp.Value.IBligeesAvailable;
+                avgEP += kvp.Value.IPlinksAvailable;
+                avgTW += kvp.Value.IWorkbenchesAvailable;
+                avgTB += kvp.Value.IBligsAvailable;
             }
 
             ExcessResources.Text =
-                "Average excess"+
-                "\nSpunkees: " + avgESp +
-                "\nBligees: " + avgEB +
-                "\nPlinks: " + avgEP +
-                "\nWorkbenches: " + avgTW +
-                "\nBligs: " + avgTB;
+                "Average excess" +
+                "\nSpunkees: " + Math.Floor(avgESp / iTimeLine) +
+                "\nBligees: " + Math.Floor(avgEB / iTimeLine) +
+                "\nPlinks: " + Math.Floor(avgEP / iTimeLine) +
+                "\nWorkbenches: " + Math.Floor(avgTW / iTimeLine) +
+                "\nBligs: " + Math.Floor(avgTB / iTimeLine);
 
         }
 
