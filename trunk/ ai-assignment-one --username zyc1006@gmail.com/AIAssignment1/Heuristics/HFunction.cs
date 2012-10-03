@@ -18,9 +18,7 @@ namespace AIAssignment1
  //Finding Plonks
  int NFP = (1000- cStateInfo.IServicedPlonks - cStateInfo.IUnservicedPlonks )/10;
  //Servicing Bligs
- int Bh = 0;
- foreach(TB){
- Bh = Bh + TB[i];}
+ int Bh =  8*cStateInfo.ListBligStatus[0]+7* cStateInfo.ListBligStatus[1]+6* cStateInfo.ListBligStatus[2]+5* cStateInfo.ListBligStatus[3]+4* cStateInfo.ListBligStatus[4]+3* cStateInfo.ListBligStatus[5]+2* cStateInfo.ListBligStatus[6]+ cStateInfo.ListBligStatus[7];
  int NSB = (NSP-Bh)/8;
  //Making Spunks
  int NMS = (20*NSP+10*NFP+20*NSB- cStateInfo.ISpunks )/50;
