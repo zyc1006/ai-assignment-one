@@ -12,7 +12,9 @@ namespace AIAssignment1
 {
     public partial class Form1 : Form
     {
-     
+
+        private Dictionary<Int32, CStateInfo> oldStates = new Dictionary<Int32, CStateInfo>();
+
         private CStateInfo cStateInfo = null;
         private IWalker cActions = null;
         private Int32 iTimeLine = 0;
@@ -68,7 +70,9 @@ namespace AIAssignment1
             btStart.Enabled = false;
             btStep.Enabled = true;
             btRun.Enabled = true;
-            
+
+            oldStates.Clear();
+
     //        displayStatusInfo(cStateInfo, iTimeLine);
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
         }
@@ -153,9 +157,11 @@ namespace AIAssignment1
         {
             cActions.nextAction();
             iTimeLine++;
+            oldStates.Add(iTimeLine, cStateInfo.copy());
             displayActionInfo(cStateInfo, iTimeLine);
             displayStatusInfo(cStateInfo, iTimeLine);
             displayBlStatusInfo(cStateInfo, iTimeLine - 1);
+
         }
 
         /**
@@ -168,15 +174,54 @@ namespace AIAssignment1
         private void displayStatusInfo(CStateInfo cStateInfo, Int32 iTimeLine)
         {
 
-            dgvInfo.Rows.Add(new Object[]
-                              {iTimeLine,cStateInfo.ISpunkeesAvailable, cStateInfo.IPlinksAvailable, 
-                               cStateInfo.IWorkbenchesAvailable, cStateInfo.ISpunks,
-                               cStateInfo.IUnservicedPlonks, cStateInfo.IServicedPlonks});
+            dgvInfo.Rows.Add(new Object[]{
+                                iTimeLine,
+                                cStateInfo.ISpunkeesAvailable,
+                                cStateInfo.IBligeesAvailable,
+                                cStateInfo.IPlinksAvailable,
+                                cStateInfo.IWorkbenchesAvailable,
+                                cStateInfo.IBligsAvailable,
+                                cStateInfo.ISpunks,
+                                cStateInfo.IUnservicedPlonks,
+                                cStateInfo.IServicedPlonks
+                              });
             if (iTimeLine - 4 > 0)
             {
                 dgvInfo.FirstDisplayedScrollingRowIndex = iTimeLine - 4;
             }
-            
+
+            printExcess();
+        }
+
+        /// <summary>
+        /// Prints the average unused (excess) resources over
+        /// all timesteps.
+        /// </summary>
+        private void printExcess()
+        {
+            int avgESp = 0;
+            int avgEB = 0;
+            int avgEP = 0;
+            int avgTW = 0;
+            int avgTB = 0;
+
+            foreach (KeyValuePair<Int32, CStateInfo> kvp in oldStates)
+            {
+                avgESp = (avgESp + kvp.Value.ISpunkeesAvailable) / 2;
+                avgEB = (avgEB + kvp.Value.IBligeesAvailable) / 2;
+                avgEP = (avgEP + kvp.Value.IPlinksAvailable) / 2;
+                avgTW = (avgTW + kvp.Value.IWorkbenchesAvailable) / 2;
+                avgTB = (avgTB + kvp.Value.IBligsAvailable) / 2;
+            }
+
+            ExcessResources.Text =
+                "Average excess"+
+                "\nSpunkees: " + avgESp +
+                "\nBligees: " + avgEB +
+                "\nPlinks: " + avgEP +
+                "\nWorkbenches: " + avgTW +
+                "\nBligs: " + avgTB;
+
         }
 
         /**

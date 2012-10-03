@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Reflection;
 
 namespace AIAssignment1
 {
@@ -121,8 +122,21 @@ namespace AIAssignment1
         /// <summary>
         /// Total number of bligs under serving
         /// </summary>
-        /// 
         public Int32 IBligsUnderServing = 0;
-        
+
+        /// <summary>
+        /// Copies this object.
+        /// </summary>
+        /// <returns>A shallow copy of this object.</returns>
+        public CStateInfo copy()
+        {
+            CStateInfo copy = new CStateInfo();
+            foreach (FieldInfo fi in this.GetType().GetFields())
+            {
+                fi.SetValue(copy, fi.GetValue(this));
+            }
+            return copy;
+        }
+
     }
 }

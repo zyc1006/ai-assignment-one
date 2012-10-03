@@ -48,13 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvInfo = new System.Windows.Forms.DataGridView();
-            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSpunkees = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPlinks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clWorkbenches = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSpunks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clUnPlonks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSePlonks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBlInfo = new System.Windows.Forms.DataGridView();
             this.clHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clBligs = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +66,16 @@
             this.clSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSpunkees = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BligeesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPlinks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clWorkbenches = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BligsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSpunks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clUnPlonks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSePlonks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExcessResources = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
@@ -83,7 +86,7 @@
             // 
             // btStart
             // 
-            this.btStart.Location = new System.Drawing.Point(229, 144);
+            this.btStart.Location = new System.Drawing.Point(213, 135);
             this.btStart.Name = "btStart";
             this.btStart.Size = new System.Drawing.Size(67, 25);
             this.btStart.TabIndex = 8;
@@ -126,7 +129,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(31, 25);
+            this.groupBox1.Location = new System.Drawing.Point(15, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(166, 144);
             this.groupBox1.TabIndex = 4;
@@ -166,7 +169,7 @@
             this.groupBox2.Controls.Add(this.txTotalBlig);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(229, 25);
+            this.groupBox2.Location = new System.Drawing.Point(213, 16);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(160, 107);
             this.groupBox2.TabIndex = 5;
@@ -229,12 +232,14 @@
             this.dgvInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clTime,
             this.clSpunkees,
+            this.BligeesColumn,
             this.clPlinks,
             this.clWorkbenches,
+            this.BligsColumn,
             this.clSpunks,
             this.clUnPlonks,
             this.clSePlonks});
-            this.dgvInfo.Location = new System.Drawing.Point(31, 193);
+            this.dgvInfo.Location = new System.Drawing.Point(12, 184);
             this.dgvInfo.MultiSelect = false;
             this.dgvInfo.Name = "dgvInfo";
             this.dgvInfo.ReadOnly = true;
@@ -249,58 +254,10 @@
             this.dgvInfo.RowHeadersVisible = false;
             this.dgvInfo.RowHeadersWidth = 36;
             this.dgvInfo.RowTemplate.Height = 23;
-            this.dgvInfo.Size = new System.Drawing.Size(449, 216);
+            this.dgvInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvInfo.Size = new System.Drawing.Size(542, 216);
             this.dgvInfo.TabIndex = 6;
             this.dgvInfo.SelectionChanged += new System.EventHandler(this.dgvInfo_SelectionChanged);
-            // 
-            // clTime
-            // 
-            this.clTime.HeaderText = "Time";
-            this.clTime.Name = "clTime";
-            this.clTime.ReadOnly = true;
-            this.clTime.Width = 54;
-            // 
-            // clSpunkees
-            // 
-            this.clSpunkees.HeaderText = "Spunkees";
-            this.clSpunkees.Name = "clSpunkees";
-            this.clSpunkees.ReadOnly = true;
-            this.clSpunkees.Width = 78;
-            // 
-            // clPlinks
-            // 
-            this.clPlinks.HeaderText = "Plinks";
-            this.clPlinks.Name = "clPlinks";
-            this.clPlinks.ReadOnly = true;
-            this.clPlinks.Width = 66;
-            // 
-            // clWorkbenches
-            // 
-            this.clWorkbenches.HeaderText = "Workbenches";
-            this.clWorkbenches.Name = "clWorkbenches";
-            this.clWorkbenches.ReadOnly = true;
-            this.clWorkbenches.Width = 96;
-            // 
-            // clSpunks
-            // 
-            this.clSpunks.HeaderText = "Spunks";
-            this.clSpunks.Name = "clSpunks";
-            this.clSpunks.ReadOnly = true;
-            this.clSpunks.Width = 66;
-            // 
-            // clUnPlonks
-            // 
-            this.clUnPlonks.HeaderText = "Unserviced Plonks";
-            this.clUnPlonks.Name = "clUnPlonks";
-            this.clUnPlonks.ReadOnly = true;
-            this.clUnPlonks.Width = 121;
-            // 
-            // clSePlonks
-            // 
-            this.clSePlonks.HeaderText = "Serviced Plonks";
-            this.clSePlonks.Name = "clSePlonks";
-            this.clSePlonks.ReadOnly = true;
-            this.clSePlonks.Width = 78;
             // 
             // dgvBlInfo
             // 
@@ -324,7 +281,7 @@
             this.clBligs,
             this.clBligeesNormal,
             this.clBligeesFast});
-            this.dgvBlInfo.Location = new System.Drawing.Point(510, 193);
+            this.dgvBlInfo.Location = new System.Drawing.Point(759, 16);
             this.dgvBlInfo.MultiSelect = false;
             this.dgvBlInfo.Name = "dgvBlInfo";
             this.dgvBlInfo.ReadOnly = true;
@@ -339,7 +296,7 @@
             this.dgvBlInfo.RowHeadersVisible = false;
             this.dgvBlInfo.RowHeadersWidth = 22;
             this.dgvBlInfo.RowTemplate.Height = 23;
-            this.dgvBlInfo.Size = new System.Drawing.Size(262, 262);
+            this.dgvBlInfo.Size = new System.Drawing.Size(253, 238);
             this.dgvBlInfo.TabIndex = 9;
             // 
             // clHour
@@ -381,9 +338,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lbMessage);
-            this.groupBox3.Location = new System.Drawing.Point(412, 24);
+            this.groupBox3.Location = new System.Drawing.Point(396, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(140, 108);
+            this.groupBox3.Size = new System.Drawing.Size(158, 108);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Message";
@@ -391,7 +348,7 @@
             // btStep
             // 
             this.btStep.Enabled = false;
-            this.btStep.Location = new System.Drawing.Point(311, 144);
+            this.btStep.Location = new System.Drawing.Point(295, 135);
             this.btStep.Name = "btStep";
             this.btStep.Size = new System.Drawing.Size(66, 25);
             this.btStep.TabIndex = 9;
@@ -402,7 +359,7 @@
             // btRun
             // 
             this.btRun.Enabled = false;
-            this.btRun.Location = new System.Drawing.Point(396, 144);
+            this.btRun.Location = new System.Drawing.Point(380, 135);
             this.btRun.Name = "btRun";
             this.btRun.Size = new System.Drawing.Size(63, 25);
             this.btRun.TabIndex = 12;
@@ -434,7 +391,7 @@
             this.clSBF,
             this.clFP,
             this.clSP});
-            this.dgvAction.Location = new System.Drawing.Point(571, 25);
+            this.dgvAction.Location = new System.Drawing.Point(569, 184);
             this.dgvAction.MultiSelect = false;
             this.dgvAction.Name = "dgvAction";
             this.dgvAction.ReadOnly = true;
@@ -449,7 +406,8 @@
             this.dgvAction.RowHeadersVisible = false;
             this.dgvAction.RowHeadersWidth = 36;
             this.dgvAction.RowTemplate.Height = 23;
-            this.dgvAction.Size = new System.Drawing.Size(197, 144);
+            this.dgvAction.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvAction.Size = new System.Drawing.Size(184, 216);
             this.dgvAction.TabIndex = 13;
             this.dgvAction.SelectionChanged += new System.EventHandler(this.dgvAction_SelectionChanged);
             // 
@@ -503,7 +461,7 @@
             // 
             // btSearch
             // 
-            this.btSearch.Location = new System.Drawing.Point(50, 429);
+            this.btSearch.Location = new System.Drawing.Point(31, 488);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(75, 25);
             this.btSearch.TabIndex = 14;
@@ -512,16 +470,89 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(174, 431);
+            this.textBox1.Location = new System.Drawing.Point(112, 491);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 15;
+            // 
+            // clTime
+            // 
+            this.clTime.HeaderText = "Time";
+            this.clTime.Name = "clTime";
+            this.clTime.ReadOnly = true;
+            this.clTime.Width = 54;
+            // 
+            // clSpunkees
+            // 
+            this.clSpunkees.HeaderText = "Spunkees";
+            this.clSpunkees.Name = "clSpunkees";
+            this.clSpunkees.ReadOnly = true;
+            this.clSpunkees.Width = 78;
+            // 
+            // BligeesColumn
+            // 
+            this.BligeesColumn.HeaderText = "Bligees";
+            this.BligeesColumn.Name = "BligeesColumn";
+            this.BligeesColumn.ReadOnly = true;
+            this.BligeesColumn.Width = 72;
+            // 
+            // clPlinks
+            // 
+            this.clPlinks.HeaderText = "Plinks";
+            this.clPlinks.Name = "clPlinks";
+            this.clPlinks.ReadOnly = true;
+            this.clPlinks.Width = 66;
+            // 
+            // clWorkbenches
+            // 
+            this.clWorkbenches.HeaderText = "Workbenches";
+            this.clWorkbenches.Name = "clWorkbenches";
+            this.clWorkbenches.ReadOnly = true;
+            this.clWorkbenches.Width = 96;
+            // 
+            // BligsColumn
+            // 
+            this.BligsColumn.HeaderText = "Bligs";
+            this.BligsColumn.Name = "BligsColumn";
+            this.BligsColumn.ReadOnly = true;
+            this.BligsColumn.Width = 60;
+            // 
+            // clSpunks
+            // 
+            this.clSpunks.HeaderText = "Spunks";
+            this.clSpunks.Name = "clSpunks";
+            this.clSpunks.ReadOnly = true;
+            this.clSpunks.Width = 66;
+            // 
+            // clUnPlonks
+            // 
+            this.clUnPlonks.HeaderText = "Unserviced Plonks";
+            this.clUnPlonks.Name = "clUnPlonks";
+            this.clUnPlonks.ReadOnly = true;
+            this.clUnPlonks.Width = 121;
+            // 
+            // clSePlonks
+            // 
+            this.clSePlonks.HeaderText = "Serviced Plonks";
+            this.clSePlonks.Name = "clSePlonks";
+            this.clSePlonks.ReadOnly = true;
+            this.clSePlonks.Width = 78;
+            // 
+            // ExcessResources
+            // 
+            this.ExcessResources.Location = new System.Drawing.Point(569, 16);
+            this.ExcessResources.Name = "ExcessResources";
+            this.ExcessResources.Size = new System.Drawing.Size(181, 107);
+            this.ExcessResources.TabIndex = 16;
+            this.ExcessResources.TabStop = false;
+            this.ExcessResources.Text = "Average excess";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 481);
+            this.ClientSize = new System.Drawing.Size(1021, 556);
+            this.Controls.Add(this.ExcessResources);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.btRun);
@@ -568,13 +599,6 @@
         private System.Windows.Forms.DataGridView dgvBlInfo;
         private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSpunkees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPlinks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clWorkbenches;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSpunks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clUnPlonks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSePlonks;
         private System.Windows.Forms.Button btStep;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHour;
         private System.Windows.Forms.DataGridViewTextBoxColumn clBligs;
@@ -590,6 +614,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clSBF;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFP;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSpunkees;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BligeesColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPlinks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clWorkbenches;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BligsColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSpunks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clUnPlonks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSePlonks;
+        private System.Windows.Forms.GroupBox ExcessResources;
     }
 }
 

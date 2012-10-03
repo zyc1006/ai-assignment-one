@@ -58,6 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Heuristics\HFunction.cs" />
     <Compile Include="IWalker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,9 +91,6 @@
     <Compile Include="Basics\ResourceQty.cs" />
     <Compile Include="Basics\Task.cs" />
     <Compile Include="TransitionRating\ITransitionRater.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Heuristics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
