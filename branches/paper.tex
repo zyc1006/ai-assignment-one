@@ -1,0 +1,9 @@
+ \documentclass{article}
+ \begin{document}
+ \section*{How to get 1000 Serviced Plonks}
+ For the Serviced-Plonks-Problem, we chose a mixture between a Greedy and an A* approach. First of all, we regarded the whole process as a state plane. The states being the number of different ressources, employees and tools at a given time. So what we do is, we start with the given amounts of employees and tools and zero of everything else and then calculate, which actions best to perform during the next hour, to quickly get to 1000 Serviced Plonks. To do this we found different approaches.
+  \subsection*{Maximize ressource value}
+ Our first approach was to refer a value to every ressource and then do the actions so that the sum of used ressourcevalues is highest.
+  \subsection*{Greedy A*}
+ The second idea was to use A* but instead of looking of all possible states just to calculate the best looking with an appropriate heuristic functions and then use that one as our new state. That always gives us a solution as we can't stuck with our problem if we choose the heurstic accordingly.
+ \end{document}
