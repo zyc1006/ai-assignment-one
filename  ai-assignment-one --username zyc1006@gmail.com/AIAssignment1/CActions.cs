@@ -127,10 +127,11 @@ namespace AIAssignment1
         Int32 whetherFindPlonks(CStateInfo cStateInfo)
         {
             //1000 unserviced plonks
-//             if (cStateInfo.ITotalUnservicedPlonks >= 1000)
-//             {
-//                 return 0;
-//             }
+            if (cStateInfo.ITotalUnservicedPlonks >= 1000)
+            {
+                cStateInfo.ITimesFindPlonks = 0;
+                return cStateInfo.ITimesFindPlonks;
+            }
             Int32 SpunksLimit = (Int32)(cStateInfo.ISpunks / SPUNKS_CONSUMED_FOR_FINDING_PLONKS);
             cStateInfo.ITimesFindPlonks = Math.Min(SpunksLimit, cStateInfo.IPlinksAvailable);
          //   cStateInfo.IPlinksAvailable -= cStateInfo.ITimesFindPlonks;
@@ -312,6 +313,7 @@ namespace AIAssignment1
 
             
         }
+       
        
        
     }
