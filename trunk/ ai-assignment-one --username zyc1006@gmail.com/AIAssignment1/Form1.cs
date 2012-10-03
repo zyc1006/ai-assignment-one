@@ -127,6 +127,7 @@ namespace AIAssignment1
                     cStateInfo.IPlinksAvailable < 1 || cStateInfo.IWorkbenchesAvailable < 1 ||
                     cStateInfo.IBligTotal < 1)
                 {
+                    lbMessage.Text = "Invalid input!";
                     return false;
                 }
                 cActions = new CActions(cStateInfo);
