@@ -1,0 +1,10 @@
+Dictionary example = new Dictionary<string,string>();
+...
+example.Add("hello","world");
+...
+Console.Writeline(example["hello"]);
+
+[MS, SB, QSB, FP, SP]
+
+interface ActionEvaluator
+int rateActions(Map<string,int> actions)
