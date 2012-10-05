@@ -1,0 +1,59 @@
+\documentclass{article}
+\begin{document}
+\title{AI - Assignment One: The Plonk Planning Problem}
+\date{2012-10-08}
+\author{
+	Zhou, Yucheng\\
+	\texttt{Yucheng.Zhou.3489@student.uu.se}
+	\and
+	Siegmund, Martin\\
+	\texttt{Marting.Siegmund.8845@student.uu.se}
+	\and
+	Olsson, Joakim\\
+	\texttt{INSERT STUDENT EMAIL HERE}
+	\and
+	Gustafsson, Daniel\\
+	\texttt{Daniel.Gustafsson.6481@student.uu.se}
+}
+\maketitle 
+
+\section*{Introduction}
+Some sort of introduction goes here maybe possibly.
+
+\section*{Algorithm}
+When we started to discuss what algorithm to use, we first decided to use A*. But as we then reasoned, you could randomly do actions and still reach 1000 serviced plonks. Since we can also make an infinite ammount of spunks and can find an infinite ammount of plonks, we can never reach a point where we run out of resources. When we realised this we changed to a greedy algorithm since the backtracking of A* would never be used.
+\\ \\
+Our algorithm first checks that none of the input is 0 since that would lead to an infinite loop. After this first check we do the following:
+\begin{enumerate}
+	\item Check if we've reached the goal of 1000 serviced plonks yet. If we have reached this, stop, otherwise continue.
+	\item Recover resources. Since resources are used during the hour, here the resources that was used the previous hour is made available and any bligs coming out of service is made available with 8 hours of working time.
+	\item Check what of the 5 possible actions we can do and do them, we choose to prioritize the actions like this, with the most prioritized one first:
+	\begin{enumerate}
+		\item Service as many plonks as possible.
+		\item With the remaining resources, find as many plonks as possible.
+		\item With the remaining resources, service broken bligs using the fast service.
+		\item With the remaining resources, service broken bligs using the slow service.
+		\item With the remaining resources, make more spunks.
+	\end{enumerate}
+	\item Increase time.
+	\item Repeat
+\end{enumerate}
+
+This priority of actions was decided upon since the goal is to service plonks. To service plonks they need to be found, and we also neen working bligs. And to make everything we need spunks. 
+\\ \\
+This ordering also prevents infinite loops since the producing actions (making spunks and finding plonks) are prioritized less then the respective consuming actions. Making spunks is prioritized lowest and finding plonks is prioritized less then servicing plonks.
+
+\section*{Servicing bligs}
+We made the decision early on to only service broken bligs. During development of the algorithm we chose to prioritize the fast service higher then the slower service because the fast service is fast.
+
+\section*{Suggestions}
+To give the user suggestions as what to change concerning the ressources, we calculate the average unused employees and tools. We then consider to take a ressource with the highest unused time and give one to the lowest. The program takes another run with changed values afterwards to check if the change really improves the time and then gives the user the suggestion.
+This way, we keep unused ressources to a minimum and still check if we didn't just find a weird situation.
+
+\section*{Heuristic function}
+We calculated a optimistic function for some starting states and the hours weren't that much lower than our numbers, so they are pretty good.
+
+\section*{Final thoughts}
+Advantages - the runtime is very fast, the solution isn't to bad, 
+
+\end{document}
