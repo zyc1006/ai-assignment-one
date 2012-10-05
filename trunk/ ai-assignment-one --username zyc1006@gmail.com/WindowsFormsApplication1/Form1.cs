@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         private int excessTW;
         private int excessTB;
 
-        private Calculator calc = new Calculator();
+        private IAdjustmentCalculator calc = new GraphCalculator();
 
         public AdjustmentCaculator()
         {
@@ -33,11 +33,11 @@ namespace WindowsFormsApplication1
 
             calc.calculate(excessESp, excessEB, excessEP, excessTW, excessTB);
 
-            tbESpAdjustment.Text = calc.adjESp.ToString();
-            tbEBAdjustment.Text = calc.adjEB.ToString();
-            tbEPAdjustment.Text = calc.adjEP.ToString();
-            tbTWAdjustment.Text = calc.adjTW.ToString();
-            tbTBAdjustment.Text = calc.adjTB.ToString();
+            tbESpAdjustment.Text = calc.AdjESp.ToString();
+            tbEBAdjustment.Text = calc.AdjEB.ToString();
+            tbEPAdjustment.Text = calc.AdjEP.ToString();
+            tbTWAdjustment.Text = calc.AdjTW.ToString();
+            tbTBAdjustment.Text = calc.AdjTB.ToString();
         }
 
         private bool tryGetExcessVals()
@@ -90,14 +90,14 @@ namespace WindowsFormsApplication1
             return r;
         }
 
-        private class Calculator
+        private class GraphCalculator : IAdjustmentCalculator
         {
 
-            public int adjESp { get; private set; }
-            public int adjEB { get; private set; }
-            public int adjEP { get; private set; }
-            public int adjTW { get; private set; }
-            public int adjTB { get; private set; }
+            public int AdjESp { get; private set; }
+            public int AdjEB { get; private set; }
+            public int AdjEP { get; private set; }
+            public int AdjTW { get; private set; }
+            public int AdjTB { get; private set; }
 
             public void calculate(int excessESp, int excessEB, int excessEP, int excessTW, int excessTB)
             {
@@ -137,11 +137,11 @@ namespace WindowsFormsApplication1
                         nodes.Enqueue(n);
                 }
 
-                adjESp = ESp.Adjustment;
-                adjEB = EB.Adjustment;
-                adjEP = EP.Adjustment;
-                adjTW = TW.Adjustment;
-                adjTB = TB.Adjustment;
+                AdjESp = ESp.Adjustment;
+                AdjEB = EB.Adjustment;
+                AdjEP = EP.Adjustment;
+                AdjTW = TW.Adjustment;
+                AdjTB = TB.Adjustment;
             }
         }
 
@@ -195,12 +195,12 @@ namespace WindowsFormsApplication1
                 transitions.Add(n, er);
                 fromWeightsTot += from;
             }
-        }
 
-        private class ExchangeRate
-        {
-            public int From = 1;
-            public int To = 1;
+            private class ExchangeRate
+            {
+                public int From = 1;
+                public int To = 1;
+            }
         }
     }
 }
