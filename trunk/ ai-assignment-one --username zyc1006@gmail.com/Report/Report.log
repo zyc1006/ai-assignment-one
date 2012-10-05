@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=latex 2012.10.5)  5 OCT 2012 16:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=latex 2012.10.5)  5 OCT 2012 17:02
 entering extended mode
-**namenlos-1.tex
+**Report.tex
 
 ("D:\Daniel\Documents\Universitet\Artificial Intelligence\Ass1\ai-assignment-on
-e\ ai-assignment-one --username zyc1006@gmail.com\Report\namenlos-1.tex"
+e\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -32,8 +32,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("D:\Daniel\Documents\Universitet\Artificial Intelligence\Ass1\ai-assignment-on
-e\ ai-assignment-one --username zyc1006@gmail.com\Report\namenlos-1.aux")
+No file Report.aux.
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
@@ -66,14 +65,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--45
 
 [2] [3]
 ("D:\Daniel\Documents\Universitet\Artificial Intelligence\Ass1\ai-assignment-on
-e\ ai-assignment-one --username zyc1006@gmail.com\Report\namenlos-1.aux") ) 
+e\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.aux") ) 
 Here is how much of TeX's memory you used:
- 229 strings out of 494046
- 3344 string characters out of 3148407
+ 227 strings out of 494046
+ 3016 string characters out of 3148407
  52890 words of memory out of 3000000
  3597 multiletter control sequences out of 15000+200000
  7449 words of font info for 27 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 23i,6n,17p,448b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,6n,17p,444b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on namenlos-1.dvi (3 pages, 7748 bytes).
+Output written on Report.dvi (3 pages, 7676 bytes).
