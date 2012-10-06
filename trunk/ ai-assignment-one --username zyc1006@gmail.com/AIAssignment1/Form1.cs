@@ -214,13 +214,12 @@ namespace AIAssignment1
                 avgTB += kvp.Value.IBligsAvailable;
             }
 
-            ExcessResources.Text =
-                "Average excess" +
-                "\nSpunkees: " + Math.Floor(avgESp / iTimeLine) +
-                "\nBligees: " + Math.Floor(avgEB / iTimeLine) +
-                "\nPlinks: " + Math.Floor(avgEP / iTimeLine) +
-                "\nWorkbenches: " + Math.Floor(avgTW / iTimeLine) +
-                "\nBligs: " + Math.Floor(avgTB / iTimeLine);
+            tbAverageExcessBox.Text =
+                "Spunkees: " + Math.Floor(avgESp / iTimeLine) +
+                Environment.NewLine + "Bligees: " + Math.Floor(avgEB / iTimeLine) +
+                Environment.NewLine + "Plinks: " + Math.Floor(avgEP / iTimeLine) +
+                Environment.NewLine + "Workbenches: " + Math.Floor(avgTW / iTimeLine) +
+                Environment.NewLine + "Bligs: " + Math.Floor(avgTB / iTimeLine);
 
         }
 
