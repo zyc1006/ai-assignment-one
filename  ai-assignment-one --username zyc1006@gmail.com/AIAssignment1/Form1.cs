@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Threading;
 
 namespace AIAssignment1
 {
@@ -180,7 +181,7 @@ namespace AIAssignment1
                                 cStateInfo.IBligeesAvailable,
                                 cStateInfo.IPlinksAvailable,
                                 cStateInfo.IWorkbenchesAvailable,
-                                cStateInfo.IBligsAvailable,
+                                cStateInfo.IBligTotal - cStateInfo.IBligsUnavailable - cStateInfo.IBligsUnderServing - cStateInfo.ITimesServePlonks,
                                 cStateInfo.ISpunks,
                                 cStateInfo.IUnservicedPlonks,
                                 cStateInfo.IServicedPlonks
@@ -211,7 +212,7 @@ namespace AIAssignment1
                 avgEB += kvp.Value.IBligeesAvailable;
                 avgEP += kvp.Value.IPlinksAvailable;
                 avgTW += kvp.Value.IWorkbenchesAvailable;
-                avgTB += kvp.Value.IBligsAvailable;
+                avgTB += kvp.Value.IBligTotal - kvp.Value.ITimesServePlonks - kvp.Value.IBligsUnderServing - kvp.Value.IBligsUnavailable;
             }
 
             tbAverageExcessBox.Text =
@@ -436,6 +437,133 @@ namespace AIAssignment1
 
             selectionHandlerActive = true;
         }
-        
+        /// <summary>
+        /// Start a new thread to use brute force finding the best 
+        /// distribution of the resources. Results will be displaed
+        /// in the text messsagebox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+
+            Thread t = new Thread(new ThreadStart(useBruteForce));
+            t.Start();
+        }
+        /// <summary>
+        /// Brute Force. Hahaha..............
+        /// </summary>
+        private void useBruteForce()
+        {
+            CStateInfo csi = new CStateInfo();
+            int itime = 0;
+            int minTime = 1000;
+            for (int a = 1; a <= 50; a++)
+            {
+
+                csi.ISpunkeesAvailable = a;
+                itime = 0;
+
+                for (int b = 1; b <= 50; b++)
+                {
+                    csi.IBligeesAvailable = b;
+                    for (int c = 1; c <= 50; c++)
+                    {
+                        csi.IBligTotal = c;
+                        csi.IBligsAvailable = c;
+                        csi.ListBligStatus[0] = c;
+                        for (int d = 1; d <= 50; d++)
+                        {
+                            csi.IWorkbenchesAvailable = d;
+                            for (int f = 1; f <= 50; f++)
+                            {
+                                csi.IPlinksAvailable = f;
+                                if (a + b + c + d + f == 50)
+                                {
+                                    while (csi.IServicedPlonks < 1000)
+                                    {
+                                        CActions cActions = new CActions(csi);
+                                        cActions.nextAction();
+                                        itime++;
+                                    }
+                                    if (itime < minTime)
+                                    {
+
+
+                                        lbMessage.Text = "";
+                                        minTime = itime;
+                                        setTextBoxText(tbMessageBox,
+                                            "SP:" + a + "  " + "BE:" + b + "  " + "PL:" + f + "  " + "BL:" + c + "  " + "WB:" + d + "  MIN:"+ minTime +"h\r\n",
+                                            false);
+                                        //tbMessageBox.Text = "SP:" + a + " " + "BE:" + b + "  " + "PL:" + f + "  " + "BL:" + c + "  " + "WB:" + d + " ";
+
+                                    }
+                                    else if (itime == minTime)
+                                    {
+                                        setTextBoxText(tbMessageBox,
+                                            "SP:" + a + "  " + "BE:" + b + "  " + "PL:" + f + "  " + "BL:" + c + "  " + "WB:" + d + "  MIN:" + minTime + "h\r\n",
+                                            true);
+                                        //tbMessageBox.Text += "\nSP:" + a + "  " + "BE:" + b + "  " + "PL:" + f + "  " + "BL:" + c + "  " + "WB:" + d + "  ";
+                                        // Console.WriteLine("Spunkees:" + a + "Bligee" + b + "Blig" + c + "WB:" + d + "Plink:" + f + "_" + minTime);
+                                    }
+
+
+                                    csi = new CStateInfo();
+                                    csi.ISpunkeesAvailable = a;
+                                    csi.IBligeesAvailable = b;
+                                    csi.IBligTotal = c;
+                                    csi.IBligsUnavailable = c;
+                                    csi.ListBligStatus[8] = c;
+                                    csi.IWorkbenchesAvailable = d;
+                                    itime = 0;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Declare of a delegate method
+        /// </summary>
+        /// <param name="tb"></param>
+        /// <param name="str"></param>
+        /// <param name="add"></param>
+        private delegate void deleSetTextBoxText(System.Windows.Forms.TextBox tb, String str, Boolean add);
+
+
+        /// <summary>
+        /// A delegated method to set textbox text in a different thread.
+        /// </summary>
+        /// <param name="tb"></param>
+        /// <param name="str"></param>
+        /// <param name="add"></param>
+        private void SetTextBoxText(System.Windows.Forms.TextBox tb, String str, Boolean add)
+        {
+            if (add)
+            {
+                tb.Text += str;
+            }
+            else
+            {
+                tb.Text = str;
+            }
+            
+        }
+
+
+        /// <summary>
+        /// Method be invoked by the thread.
+        /// </summary>
+        /// <param name="tb"></param>
+        /// <param name="str"></param>
+        /// <param name="add"></param>
+        private void setTextBoxText(System.Windows.Forms.TextBox tb, String str, Boolean add)
+        {
+            this.BeginInvoke(new deleSetTextBoxText(SetTextBoxText),new Object[]{tb,str,add});
+        }
     }
 }

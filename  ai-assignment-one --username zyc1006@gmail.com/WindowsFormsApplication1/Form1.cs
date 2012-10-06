@@ -115,10 +115,10 @@ namespace WindowsFormsApplication1
                 TW.addLink(TB, 1, 1);
 
                 TB.addLink(TW, 1, 1);
-                TB.addLink(EB, 1, 2);
+                TB.addLink(EB, 1, 1);
                 TB.addLink(EP, 1, 1);
 
-                EB.addLink(TB, 2, 1);
+                EB.addLink(TB, 1, 1);
                 EB.addLink(TW, 1, 1);
 
                 EP.addLink(TW, 1, 1);
