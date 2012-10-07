@@ -502,7 +502,7 @@ namespace AIAssignment1
             CStateInfo csi = new CStateInfo();
             int itime = 0;
             int minTime = 1000;
-            for (int a = 1; a <= 50; a++)
+            for (int a = 1; a <= lim; a++)
             {
 
                 csi.ISpunkeesAvailable = a;
