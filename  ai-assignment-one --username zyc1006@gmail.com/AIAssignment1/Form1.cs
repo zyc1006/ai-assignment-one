@@ -56,13 +56,16 @@ namespace AIAssignment1
          */
         private void btStart_Click(object sender, EventArgs e)
         {
-            
-           
-
             if (!initializeState())
             {
                 return;
             }
+            dgvInfo.Rows.Clear();
+            dgvBlInfo.Rows.Clear();
+            dgvAction.Rows.Clear();
+
+            oldStates.Clear();
+
             txTotalBlig.Enabled = false;
             txTotalBlige.Enabled = false;
             txTotalPl.Enabled = false;
@@ -71,8 +74,6 @@ namespace AIAssignment1
             btStart.Enabled = false;
             btStep.Enabled = true;
             btRun.Enabled = true;
-
-            oldStates.Clear();
 
     //        displayStatusInfo(cStateInfo, iTimeLine);
     //        displayBlStatusInfoTest(cStateInfo, iTimeLine);
@@ -109,9 +110,6 @@ namespace AIAssignment1
             cStateInfo = new CStateInfo();
             htStatuInfo = new Hashtable();
             lbMessage.Text = "";
-            dgvInfo.Rows.Clear();
-            dgvBlInfo.Rows.Clear();
-            dgvAction.Rows.Clear();
             
 
             iTimeLine = 0;
@@ -426,7 +424,8 @@ namespace AIAssignment1
 
             try
             {
-                dgv2.FirstDisplayedScrollingRowIndex = rowIndex;
+                //dgv2.FirstDisplayedScrollingRowIndex = rowIndex;
+                dgv2.FirstDisplayedScrollingRowIndex = dgv.FirstDisplayedScrollingRowIndex;
                 dgv2.ClearSelection();
                 dgv2.Rows[rowIndex].Selected = true;
             }
@@ -446,7 +445,6 @@ namespace AIAssignment1
         /// <param name="e"></param>
         private void btSearch_Click(object sender, EventArgs e)
         {
-
             Thread t = new Thread(new ThreadStart(useBruteForce));
             t.Start();
         }
@@ -455,6 +453,16 @@ namespace AIAssignment1
         /// </summary>
         private void useBruteForce()
         {
+            int lim;
+            try
+            {
+                lim = Convert.ToInt32(tbBruteForceLim.Text);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
             CStateInfo csi = new CStateInfo();
             int itime = 0;
             int minTime = 1000;
@@ -464,21 +472,21 @@ namespace AIAssignment1
                 csi.ISpunkeesAvailable = a;
                 itime = 0;
 
-                for (int b = 1; b <= 50; b++)
+                for (int b = 1; b <= lim; b++)
                 {
                     csi.IBligeesAvailable = b;
-                    for (int c = 1; c <= 50; c++)
+                    for (int c = 1; c <= lim; c++)
                     {
                         csi.IBligTotal = c;
                         csi.IBligsAvailable = c;
                         csi.ListBligStatus[0] = c;
-                        for (int d = 1; d <= 50; d++)
+                        for (int d = 1; d <= lim; d++)
                         {
                             csi.IWorkbenchesAvailable = d;
-                            for (int f = 1; f <= 50; f++)
+                            for (int f = 1; f <= lim; f++)
                             {
                                 csi.IPlinksAvailable = f;
-                                if (a + b + c + d + f == 50)
+                                if (a + b + c + d + f == lim)
                                 {
                                     while (csi.IServicedPlonks < 1000)
                                     {
