@@ -81,6 +81,9 @@
             this.gbActionListArea = new System.Windows.Forms.GroupBox();
             this.gbBligStatusArea = new System.Windows.Forms.GroupBox();
             this.gbInputsArea = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbBruteForceLim = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
@@ -92,13 +95,14 @@
             this.gbActionListArea.SuspendLayout();
             this.gbBligStatusArea.SuspendLayout();
             this.gbInputsArea.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btStart
             // 
-            this.btStart.Location = new System.Drawing.Point(176, 23);
+            this.btStart.Location = new System.Drawing.Point(176, 25);
             this.btStart.Name = "btStart";
-            this.btStart.Size = new System.Drawing.Size(70, 23);
+            this.btStart.Size = new System.Drawing.Size(70, 25);
             this.btStart.TabIndex = 8;
             this.btStart.Text = "START";
             this.btStart.UseVisualStyleBackColor = true;
@@ -107,27 +111,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 17);
+            this.label1.Location = new System.Drawing.Point(18, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Spunkees:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 43);
+            this.label2.Location = new System.Drawing.Point(18, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Bligees:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 71);
+            this.label3.Location = new System.Drawing.Point(18, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 12);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Plinks:";
             // 
@@ -139,36 +143,36 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 18);
+            this.groupBox1.Location = new System.Drawing.Point(6, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(151, 93);
+            this.groupBox1.Size = new System.Drawing.Size(151, 101);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employees";
             // 
             // txTotalPl
             // 
-            this.txTotalPl.Location = new System.Drawing.Point(102, 67);
+            this.txTotalPl.Location = new System.Drawing.Point(102, 73);
             this.txTotalPl.Name = "txTotalPl";
-            this.txTotalPl.Size = new System.Drawing.Size(33, 21);
+            this.txTotalPl.Size = new System.Drawing.Size(33, 20);
             this.txTotalPl.TabIndex = 6;
             this.txTotalPl.Text = "10";
             this.txTotalPl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txTotalBlige
             // 
-            this.txTotalBlige.Location = new System.Drawing.Point(102, 41);
+            this.txTotalBlige.Location = new System.Drawing.Point(102, 44);
             this.txTotalBlige.Name = "txTotalBlige";
-            this.txTotalBlige.Size = new System.Drawing.Size(33, 21);
+            this.txTotalBlige.Size = new System.Drawing.Size(33, 20);
             this.txTotalBlige.TabIndex = 5;
             this.txTotalBlige.Text = "10";
             this.txTotalBlige.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txTotalSp
             // 
-            this.txTotalSp.Location = new System.Drawing.Point(102, 14);
+            this.txTotalSp.Location = new System.Drawing.Point(102, 15);
             this.txTotalSp.Name = "txTotalSp";
-            this.txTotalSp.Size = new System.Drawing.Size(33, 21);
+            this.txTotalSp.Size = new System.Drawing.Size(33, 20);
             this.txTotalSp.TabIndex = 4;
             this.txTotalSp.Text = "10";
             this.txTotalSp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -179,27 +183,27 @@
             this.groupBox2.Controls.Add(this.txTotalBlig);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(6, 116);
+            this.groupBox2.Location = new System.Drawing.Point(6, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(151, 65);
+            this.groupBox2.Size = new System.Drawing.Size(151, 70);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tools";
             // 
             // txTotalWb
             // 
-            this.txTotalWb.Location = new System.Drawing.Point(102, 14);
+            this.txTotalWb.Location = new System.Drawing.Point(102, 15);
             this.txTotalWb.Name = "txTotalWb";
-            this.txTotalWb.Size = new System.Drawing.Size(33, 21);
+            this.txTotalWb.Size = new System.Drawing.Size(33, 20);
             this.txTotalWb.TabIndex = 7;
             this.txTotalWb.Text = "10";
             this.txTotalWb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txTotalBlig
             // 
-            this.txTotalBlig.Location = new System.Drawing.Point(102, 40);
+            this.txTotalBlig.Location = new System.Drawing.Point(102, 43);
             this.txTotalBlig.Name = "txTotalBlig";
-            this.txTotalBlig.Size = new System.Drawing.Size(33, 21);
+            this.txTotalBlig.Size = new System.Drawing.Size(33, 20);
             this.txTotalBlig.TabIndex = 6;
             this.txTotalBlig.Text = "10";
             this.txTotalBlig.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -207,18 +211,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 42);
+            this.label4.Location = new System.Drawing.Point(18, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Bligs:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 17);
+            this.label6.Location = new System.Drawing.Point(18, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Workbenches:";
             // 
@@ -249,7 +253,7 @@
             this.clSpunks,
             this.clUnPlonks,
             this.clSePlonks});
-            this.dgvInfo.Location = new System.Drawing.Point(8, 19);
+            this.dgvInfo.Location = new System.Drawing.Point(8, 21);
             this.dgvInfo.MultiSelect = false;
             this.dgvInfo.Name = "dgvInfo";
             this.dgvInfo.ReadOnly = true;
@@ -265,72 +269,90 @@
             this.dgvInfo.RowHeadersWidth = 36;
             this.dgvInfo.RowTemplate.Height = 23;
             this.dgvInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvInfo.Size = new System.Drawing.Size(542, 181);
+            this.dgvInfo.Size = new System.Drawing.Size(428, 203);
             this.dgvInfo.TabIndex = 6;
             this.dgvInfo.SelectionChanged += new System.EventHandler(this.dgvInfo_SelectionChanged);
             // 
             // clTime
             // 
-            this.clTime.HeaderText = "Time";
+            this.clTime.HeaderText = "h";
+            this.clTime.MinimumWidth = 45;
             this.clTime.Name = "clTime";
             this.clTime.ReadOnly = true;
-            this.clTime.Width = 54;
+            this.clTime.ToolTipText = "Time";
+            this.clTime.Width = 45;
             // 
             // clSpunkees
             // 
-            this.clSpunkees.HeaderText = "Spunkees";
+            this.clSpunkees.HeaderText = "ESp";
+            this.clSpunkees.MinimumWidth = 45;
             this.clSpunkees.Name = "clSpunkees";
             this.clSpunkees.ReadOnly = true;
-            this.clSpunkees.Width = 78;
+            this.clSpunkees.ToolTipText = "Spunkees";
+            this.clSpunkees.Width = 48;
             // 
             // BligeesColumn
             // 
-            this.BligeesColumn.HeaderText = "Bligees";
+            this.BligeesColumn.HeaderText = "EB";
+            this.BligeesColumn.MinimumWidth = 45;
             this.BligeesColumn.Name = "BligeesColumn";
             this.BligeesColumn.ReadOnly = true;
-            this.BligeesColumn.Width = 72;
+            this.BligeesColumn.ToolTipText = "Bligees";
+            this.BligeesColumn.Width = 45;
             // 
             // clPlinks
             // 
-            this.clPlinks.HeaderText = "Plinks";
+            this.clPlinks.HeaderText = "EP";
+            this.clPlinks.MinimumWidth = 45;
             this.clPlinks.Name = "clPlinks";
             this.clPlinks.ReadOnly = true;
-            this.clPlinks.Width = 66;
+            this.clPlinks.ToolTipText = "Plinks";
+            this.clPlinks.Width = 45;
             // 
             // clWorkbenches
             // 
-            this.clWorkbenches.HeaderText = "Workbenches";
+            this.clWorkbenches.HeaderText = "TW";
+            this.clWorkbenches.MinimumWidth = 45;
             this.clWorkbenches.Name = "clWorkbenches";
             this.clWorkbenches.ReadOnly = true;
-            this.clWorkbenches.Width = 96;
+            this.clWorkbenches.ToolTipText = "Workbenches";
+            this.clWorkbenches.Width = 45;
             // 
             // BligsColumn
             // 
-            this.BligsColumn.HeaderText = "Bligs";
+            this.BligsColumn.HeaderText = "TB";
+            this.BligsColumn.MinimumWidth = 45;
             this.BligsColumn.Name = "BligsColumn";
             this.BligsColumn.ReadOnly = true;
-            this.BligsColumn.Width = 60;
+            this.BligsColumn.ToolTipText = "Bligs";
+            this.BligsColumn.Width = 45;
             // 
             // clSpunks
             // 
-            this.clSpunks.HeaderText = "Spunks";
+            this.clSpunks.HeaderText = "RS";
+            this.clSpunks.MinimumWidth = 45;
             this.clSpunks.Name = "clSpunks";
             this.clSpunks.ReadOnly = true;
-            this.clSpunks.Width = 66;
+            this.clSpunks.ToolTipText = "Spunks";
+            this.clSpunks.Width = 45;
             // 
             // clUnPlonks
             // 
-            this.clUnPlonks.HeaderText = "Unserviced Plonks";
+            this.clUnPlonks.HeaderText = "RUP";
+            this.clUnPlonks.MinimumWidth = 45;
             this.clUnPlonks.Name = "clUnPlonks";
             this.clUnPlonks.ReadOnly = true;
-            this.clUnPlonks.Width = 121;
+            this.clUnPlonks.ToolTipText = "Unserviced Plonks";
+            this.clUnPlonks.Width = 48;
             // 
             // clSePlonks
             // 
-            this.clSePlonks.HeaderText = "Serviced Plonks";
+            this.clSePlonks.HeaderText = "RSP";
+            this.clSePlonks.MinimumWidth = 45;
             this.clSePlonks.Name = "clSePlonks";
             this.clSePlonks.ReadOnly = true;
-            this.clSePlonks.Width = 78;
+            this.clSePlonks.ToolTipText = "Serviced Plonks";
+            this.clSePlonks.Width = 48;
             // 
             // dgvBlInfo
             // 
@@ -354,7 +376,7 @@
             this.clBligs,
             this.clBligeesNormal,
             this.clBligeesFast});
-            this.dgvBlInfo.Location = new System.Drawing.Point(6, 18);
+            this.dgvBlInfo.Location = new System.Drawing.Point(7, 21);
             this.dgvBlInfo.MultiSelect = false;
             this.dgvBlInfo.Name = "dgvBlInfo";
             this.dgvBlInfo.ReadOnly = true;
@@ -369,7 +391,8 @@
             this.dgvBlInfo.RowHeadersVisible = false;
             this.dgvBlInfo.RowHeadersWidth = 22;
             this.dgvBlInfo.RowTemplate.Height = 23;
-            this.dgvBlInfo.Size = new System.Drawing.Size(253, 234);
+            this.dgvBlInfo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvBlInfo.Size = new System.Drawing.Size(253, 251);
             this.dgvBlInfo.TabIndex = 9;
             // 
             // clHour
@@ -403,37 +426,37 @@
             // lbMessage
             // 
             this.lbMessage.AutoSize = true;
-            this.lbMessage.Location = new System.Drawing.Point(18, 29);
+            this.lbMessage.Location = new System.Drawing.Point(18, 31);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(0, 12);
+            this.lbMessage.Size = new System.Drawing.Size(0, 13);
             this.lbMessage.TabIndex = 10;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tbMessageBox);
             this.groupBox3.Controls.Add(this.lbMessage);
-            this.groupBox3.Location = new System.Drawing.Point(176, 116);
+            this.groupBox3.Location = new System.Drawing.Point(176, 126);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(330, 158);
+            this.groupBox3.Size = new System.Drawing.Size(330, 171);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Message";
             // 
             // tbMessageBox
             // 
-            this.tbMessageBox.Location = new System.Drawing.Point(6, 18);
+            this.tbMessageBox.Location = new System.Drawing.Point(6, 21);
             this.tbMessageBox.Multiline = true;
             this.tbMessageBox.Name = "tbMessageBox";
             this.tbMessageBox.ReadOnly = true;
-            this.tbMessageBox.Size = new System.Drawing.Size(318, 128);
+            this.tbMessageBox.Size = new System.Drawing.Size(318, 142);
             this.tbMessageBox.TabIndex = 21;
             // 
             // btStep
             // 
             this.btStep.Enabled = false;
-            this.btStep.Location = new System.Drawing.Point(176, 52);
+            this.btStep.Location = new System.Drawing.Point(176, 56);
             this.btStep.Name = "btStep";
-            this.btStep.Size = new System.Drawing.Size(70, 23);
+            this.btStep.Size = new System.Drawing.Size(70, 25);
             this.btStep.TabIndex = 9;
             this.btStep.Text = "STEP";
             this.btStep.UseVisualStyleBackColor = true;
@@ -442,9 +465,9 @@
             // btRun
             // 
             this.btRun.Enabled = false;
-            this.btRun.Location = new System.Drawing.Point(176, 80);
+            this.btRun.Location = new System.Drawing.Point(176, 87);
             this.btRun.Name = "btRun";
-            this.btRun.Size = new System.Drawing.Size(70, 23);
+            this.btRun.Size = new System.Drawing.Size(70, 25);
             this.btRun.TabIndex = 12;
             this.btRun.Text = "RUN";
             this.btRun.UseVisualStyleBackColor = true;
@@ -474,7 +497,7 @@
             this.clSBF,
             this.clFP,
             this.clSP});
-            this.dgvAction.Location = new System.Drawing.Point(10, 18);
+            this.dgvAction.Location = new System.Drawing.Point(10, 20);
             this.dgvAction.MultiSelect = false;
             this.dgvAction.Name = "dgvAction";
             this.dgvAction.ReadOnly = true;
@@ -490,63 +513,75 @@
             this.dgvAction.RowHeadersWidth = 36;
             this.dgvAction.RowTemplate.Height = 23;
             this.dgvAction.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvAction.Size = new System.Drawing.Size(184, 183);
+            this.dgvAction.Size = new System.Drawing.Size(292, 203);
             this.dgvAction.TabIndex = 13;
             this.dgvAction.SelectionChanged += new System.EventHandler(this.dgvAction_SelectionChanged);
             // 
             // claTime
             // 
-            this.claTime.HeaderText = "Time";
+            this.claTime.HeaderText = "h";
+            this.claTime.MinimumWidth = 45;
             this.claTime.Name = "claTime";
             this.claTime.ReadOnly = true;
             this.claTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.claTime.Width = 35;
+            this.claTime.ToolTipText = "Time";
+            this.claTime.Width = 45;
             // 
             // clMS
             // 
             this.clMS.HeaderText = "MS";
+            this.clMS.MinimumWidth = 45;
             this.clMS.Name = "clMS";
             this.clMS.ReadOnly = true;
             this.clMS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clMS.Width = 23;
+            this.clMS.ToolTipText = "Make Spunks";
+            this.clMS.Width = 45;
             // 
             // clSBN
             // 
             this.clSBN.HeaderText = "SBN";
+            this.clSBN.MinimumWidth = 45;
             this.clSBN.Name = "clSBN";
             this.clSBN.ReadOnly = true;
             this.clSBN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clSBN.Width = 29;
+            this.clSBN.ToolTipText = "Service Bligs (Normal)";
+            this.clSBN.Width = 45;
             // 
             // clSBF
             // 
             this.clSBF.HeaderText = "SBF";
+            this.clSBF.MinimumWidth = 45;
             this.clSBF.Name = "clSBF";
             this.clSBF.ReadOnly = true;
             this.clSBF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clSBF.Width = 29;
+            this.clSBF.ToolTipText = "Service Bligs (Fast)";
+            this.clSBF.Width = 45;
             // 
             // clFP
             // 
             this.clFP.HeaderText = "FP";
+            this.clFP.MinimumWidth = 45;
             this.clFP.Name = "clFP";
             this.clFP.ReadOnly = true;
             this.clFP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clFP.Width = 23;
+            this.clFP.ToolTipText = "Find Plonks";
+            this.clFP.Width = 45;
             // 
             // clSP
             // 
             this.clSP.HeaderText = "SP";
+            this.clSP.MinimumWidth = 45;
             this.clSP.Name = "clSP";
             this.clSP.ReadOnly = true;
             this.clSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clSP.Width = 23;
+            this.clSP.ToolTipText = "Service Plonks";
+            this.clSP.Width = 45;
             // 
             // btSearch
             // 
-            this.btSearch.Location = new System.Drawing.Point(91, 244);
+            this.btSearch.Location = new System.Drawing.Point(6, 27);
             this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(75, 23);
+            this.btSearch.Size = new System.Drawing.Size(75, 25);
             this.btSearch.TabIndex = 14;
             this.btSearch.Text = "FIRE!";
             this.btSearch.UseVisualStyleBackColor = true;
@@ -555,28 +590,28 @@
             // ExcessResources
             // 
             this.ExcessResources.Controls.Add(this.tbAverageExcessBox);
-            this.ExcessResources.Location = new System.Drawing.Point(252, 11);
+            this.ExcessResources.Location = new System.Drawing.Point(252, 12);
             this.ExcessResources.Name = "ExcessResources";
-            this.ExcessResources.Size = new System.Drawing.Size(254, 100);
+            this.ExcessResources.Size = new System.Drawing.Size(254, 108);
             this.ExcessResources.TabIndex = 16;
             this.ExcessResources.TabStop = false;
             this.ExcessResources.Text = "Average excess";
             // 
             // tbAverageExcessBox
             // 
-            this.tbAverageExcessBox.Location = new System.Drawing.Point(6, 15);
+            this.tbAverageExcessBox.Location = new System.Drawing.Point(6, 16);
             this.tbAverageExcessBox.Multiline = true;
             this.tbAverageExcessBox.Name = "tbAverageExcessBox";
             this.tbAverageExcessBox.ReadOnly = true;
-            this.tbAverageExcessBox.Size = new System.Drawing.Size(242, 79);
+            this.tbAverageExcessBox.Size = new System.Drawing.Size(242, 85);
             this.tbAverageExcessBox.TabIndex = 0;
             // 
             // gbExcessListArea
             // 
             this.gbExcessListArea.Controls.Add(this.dgvInfo);
-            this.gbExcessListArea.Location = new System.Drawing.Point(7, 274);
+            this.gbExcessListArea.Location = new System.Drawing.Point(7, 302);
             this.gbExcessListArea.Name = "gbExcessListArea";
-            this.gbExcessListArea.Size = new System.Drawing.Size(557, 210);
+            this.gbExcessListArea.Size = new System.Drawing.Size(446, 236);
             this.gbExcessListArea.TabIndex = 17;
             this.gbExcessListArea.TabStop = false;
             this.gbExcessListArea.Text = "Resources left at hour\'s end";
@@ -584,19 +619,19 @@
             // gbActionListArea
             // 
             this.gbActionListArea.Controls.Add(this.dgvAction);
-            this.gbActionListArea.Location = new System.Drawing.Point(570, 274);
+            this.gbActionListArea.Location = new System.Drawing.Point(467, 302);
             this.gbActionListArea.Name = "gbActionListArea";
-            this.gbActionListArea.Size = new System.Drawing.Size(204, 210);
+            this.gbActionListArea.Size = new System.Drawing.Size(312, 236);
             this.gbActionListArea.TabIndex = 18;
             this.gbActionListArea.TabStop = false;
-            this.gbActionListArea.Text = "Actions (by hour)";
+            this.gbActionListArea.Text = "Plan (actions by hour)";
             // 
             // gbBligStatusArea
             // 
             this.gbBligStatusArea.Controls.Add(this.dgvBlInfo);
-            this.gbBligStatusArea.Location = new System.Drawing.Point(512, 10);
+            this.gbBligStatusArea.Location = new System.Drawing.Point(512, 11);
             this.gbBligStatusArea.Name = "gbBligStatusArea";
-            this.gbBligStatusArea.Size = new System.Drawing.Size(262, 259);
+            this.gbBligStatusArea.Size = new System.Drawing.Size(267, 283);
             this.gbBligStatusArea.TabIndex = 19;
             this.gbBligStatusArea.TabStop = false;
             this.gbBligStatusArea.Text = "Blig status";
@@ -605,24 +640,53 @@
             // 
             this.gbInputsArea.Controls.Add(this.groupBox1);
             this.gbInputsArea.Controls.Add(this.groupBox2);
-            this.gbInputsArea.Location = new System.Drawing.Point(7, 11);
+            this.gbInputsArea.Location = new System.Drawing.Point(7, 12);
             this.gbInputsArea.Name = "gbInputsArea";
-            this.gbInputsArea.Size = new System.Drawing.Size(163, 186);
+            this.gbInputsArea.Size = new System.Drawing.Size(163, 202);
             this.gbInputsArea.TabIndex = 20;
             this.gbInputsArea.TabStop = false;
             this.gbInputsArea.Text = "Input resources";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.tbBruteForceLim);
+            this.groupBox4.Controls.Add(this.btSearch);
+            this.groupBox4.Location = new System.Drawing.Point(7, 214);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(163, 59);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Brute force";
+            // 
+            // tbBruteForceLim
+            // 
+            this.tbBruteForceLim.Location = new System.Drawing.Point(88, 30);
+            this.tbBruteForceLim.Name = "tbBruteForceLim";
+            this.tbBruteForceLim.Size = new System.Drawing.Size(69, 20);
+            this.tbBruteForceLim.TabIndex = 15;
+            this.tbBruteForceLim.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(87, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Resources:";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 481);
-            this.Controls.Add(this.gbInputsArea);
-            this.Controls.Add(this.gbBligStatusArea);
+            this.ClientSize = new System.Drawing.Size(786, 546);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbActionListArea);
             this.Controls.Add(this.gbExcessListArea);
+            this.Controls.Add(this.gbBligStatusArea);
+            this.Controls.Add(this.gbInputsArea);
             this.Controls.Add(this.ExcessResources);
-            this.Controls.Add(this.btSearch);
             this.Controls.Add(this.btRun);
             this.Controls.Add(this.btStep);
             this.Controls.Add(this.btStart);
@@ -644,6 +708,8 @@
             this.gbActionListArea.ResumeLayout(false);
             this.gbBligStatusArea.ResumeLayout(false);
             this.gbInputsArea.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -675,12 +741,13 @@
         private System.Windows.Forms.Button btRun;
         private System.Windows.Forms.DataGridView dgvAction;
         private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn claTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clMS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSBN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSBF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clFP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSP;
+        private System.Windows.Forms.GroupBox ExcessResources;
+        private System.Windows.Forms.GroupBox gbExcessListArea;
+        private System.Windows.Forms.TextBox tbAverageExcessBox;
+        private System.Windows.Forms.GroupBox gbActionListArea;
+        private System.Windows.Forms.GroupBox gbBligStatusArea;
+        private System.Windows.Forms.GroupBox gbInputsArea;
+        private System.Windows.Forms.TextBox tbMessageBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSpunkees;
         private System.Windows.Forms.DataGridViewTextBoxColumn BligeesColumn;
@@ -690,13 +757,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clSpunks;
         private System.Windows.Forms.DataGridViewTextBoxColumn clUnPlonks;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSePlonks;
-        private System.Windows.Forms.GroupBox ExcessResources;
-        private System.Windows.Forms.GroupBox gbExcessListArea;
-        private System.Windows.Forms.TextBox tbAverageExcessBox;
-        private System.Windows.Forms.GroupBox gbActionListArea;
-        private System.Windows.Forms.GroupBox gbBligStatusArea;
-        private System.Windows.Forms.GroupBox gbInputsArea;
-        private System.Windows.Forms.TextBox tbMessageBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSBF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clFP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSP;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbBruteForceLim;
     }
 }
 
