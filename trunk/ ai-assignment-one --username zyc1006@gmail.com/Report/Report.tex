@@ -23,7 +23,7 @@
 \section*{Algorithm}
 When we started to discuss what algorithm to use, we first decided to use A*. But as we then reasoned, you could randomly do actions and still reach 1000 serviced plonks. Since we can also make an infinite ammount of spunks and can find an infinite ammount of plonks, we can never reach a point where we run out of resources. When we realised this we changed to a greedy algorithm since the backtracking of A* wasn't necessary.
 \\ \\
-Our algorithm first checks that none of the input is 0 since that could lead to an infinite loop. After this first check we do the following:
+Our algorithm first checks that none of the input is 0 or that if bligees is 0 we don't have less than 25 bligs, since that could lead to an infinite loop. After this first check we do the following:
 \begin{enumerate}
 	\item Check if we've reached the goal of 1000 serviced plonks yet. If we have reached this, stop, otherwise continue.
 	\item Recover resources. Since resources are used during the hour, here the resources that were used the previous hour are made available and any bligs coming out of service are made available with 8 hours of working time.
