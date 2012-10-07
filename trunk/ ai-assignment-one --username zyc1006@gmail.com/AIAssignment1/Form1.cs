@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.Threading;
+using AIAssignment1.Adjustments;
 
 namespace AIAssignment1
 {
@@ -16,10 +17,14 @@ namespace AIAssignment1
 
         private Dictionary<Int32, CStateInfo> oldStates = new Dictionary<Int32, CStateInfo>();
 
+        private IAdjustmentCalculator adjCalc = new GraphCalculator();
+
         private CStateInfo cStateInfo = null;
         private IWalker cActions = null;
         private Int32 iTimeLine = 0;
         private Hashtable htStatuInfo;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -218,13 +223,38 @@ namespace AIAssignment1
                 avgTW += kvp.Value.IWorkbenchesAvailable;
                 avgTB += kvp.Value.IBligTotal - kvp.Value.ITimesServePlonks - kvp.Value.IBligsUnderServing - kvp.Value.IBligsUnavailable;
             }
+            avgESp = (float)Math.Floor(avgESp / iTimeLine);
+            avgEB = (float)Math.Floor(avgEB / iTimeLine);
+            avgEP = (float)Math.Floor(avgEP / iTimeLine);
+            avgTW = (float)Math.Floor(avgTW / iTimeLine);
+            avgTB = (float)Math.Floor(avgTB / iTimeLine);
+
 
             tbAverageExcessBox.Text =
-                "Spunkees: " + Math.Floor(avgESp / iTimeLine) +
-                Environment.NewLine + "Bligees: " + Math.Floor(avgEB / iTimeLine) +
-                Environment.NewLine + "Plinks: " + Math.Floor(avgEP / iTimeLine) +
-                Environment.NewLine + "Workbenches: " + Math.Floor(avgTW / iTimeLine) +
-                Environment.NewLine + "Bligs: " + Math.Floor(avgTB / iTimeLine);
+                "Spunkees: " + avgESp +
+                Environment.NewLine + "Bligees: " + avgEB +
+                Environment.NewLine + "Plinks: " + avgEP +
+                Environment.NewLine + "Workbenches: " + avgTW +
+                Environment.NewLine + "Bligs: " + avgTB;
+
+            adjCalc.calculate((int)avgESp, (int)avgEB, (int)avgEP, (int)avgTW, (int)avgTB);
+
+            if (adjCalc.AdjESp == 0 &&
+                adjCalc.AdjEB == 0 &&
+                adjCalc.AdjEP == 0 &&
+                adjCalc.AdjTW == 0 &&
+                adjCalc.AdjTB == 0)
+            {
+                tbMessageBox.Text = "I can't provide any more suggestions, this is as good as I can get it.";
+            }
+            else
+                tbMessageBox.Text =
+                    "I suggest you make the following adjustments to the inputs" +
+                    Environment.NewLine + "Spunkees: " + adjCalc.AdjESp +
+                    Environment.NewLine + "Bligees: " + adjCalc.AdjEB +
+                    Environment.NewLine + "Plinks: " + adjCalc.AdjEP +
+                    Environment.NewLine + "Workbenches: " + adjCalc.AdjTW +
+                    Environment.NewLine + "Bligs: " + adjCalc.AdjTB;
 
         }
 

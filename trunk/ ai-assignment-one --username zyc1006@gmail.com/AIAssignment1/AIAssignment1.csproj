@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adjustments\GraphCalculator.cs" />
+    <Compile Include="Adjustments\IAdjustmentCalculator.cs" />
     <Compile Include="Basics\AIA1Object.cs" />
     <Compile Include="CActions.cs" />
     <Compile Include="CBlStatusDGV.cs" />
