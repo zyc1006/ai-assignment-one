@@ -1,4 +1,7 @@
 \documentclass{article}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{23cm}
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
 \begin{document}
 \title{AI - Assignment One: The Plonk Planning Problem}
 \date{2012-10-08}
@@ -15,14 +18,14 @@
 	Gustafsson, Daniel\\
 	\texttt{Daniel.Gustafsson.6481@student.uu.se}
 }
-\maketitle 
+\maketitle
 
 \section*{Introduction}
-\" Servicing Plonks has been a crucial task for humankind, even since before the taming of fire. Other species like the Neanderthals went extinct solely because of their lacking skills in this endeavour. This is why every computer scientist can be very proud to be a part of a course that makes this important undertaking easier. \"
+ Servicing Plonks has been a crucial task for humankind, even since before the taming of fire. Other species like the Neanderthals went extinct solely because of their lacking skills in this endeavour. This is why every computer scientist can be very proud to be a part of a course that makes this important undertaking easier.
 
 \section*{Algorithm}
 When we started to discuss what algorithm to use, we first decided to use A*. But as we then reasoned, you could randomly do actions and still reach 1000 serviced plonks. Since we can also make an infinite ammount of spunks and can find an infinite ammount of plonks, we can never reach a point where we run out of resources. When we realised this we changed to a greedy algorithm since the backtracking of A* wasn't necessary.
-\\ \\
+\\[2ex]
 Our algorithm first checks that none of the input is 0 or that if bligees is 0 we don't have less than 25 bligs, since that could lead to an infinite loop. After this first check we do the following:
 \begin{enumerate}
 	\item Check if we've reached the goal of 1000 serviced plonks yet. If we have reached this, stop, otherwise continue.
@@ -39,8 +42,8 @@ Our algorithm first checks that none of the input is 0 or that if bligees is 0 w
 	\item Repeat
 \end{enumerate}
 
-This priority of actions was decided upon since the goal is to service plonks. To service plonks they need to be found, and we also need working bligs. Furthermore Finding Plonks and Servicing Bligs don't have any employees or tools they both need, so unless we are short of Spunks the order does not matter here. And to make everything we need spunks. 
-\\ \\
+This priority of actions was decided upon since the goal is to service plonks. To service plonks they need to be found, and we also need working bligs. Furthermore Finding Plonks and Servicing Bligs don't have any employees or tools they both need, so unless we are short of Spunks the order does not matter here. And to make everything we need spunks.
+\\[2ex]
 This ordering also prevents infinite loops since the producing actions (making spunks and finding plonks) are prioritized less then the respective consuming actions. Making spunks is prioritized lowest and finding plonks is prioritized less then servicing plonks.
 
 \section*{Servicing bligs}
@@ -49,50 +52,48 @@ We made the decision early on to only service broken bligs. During development o
 \section*{Suggestions}
 To give the user suggestions as what to change concerning the resources, we calculate the average unused employees and tools. We then consider to take a resource with the highest unused time and give one to the lowest. The program takes another run with changed values afterwards to check if the change really improves the time and then gives the user the suggestion.
 This way, we kept unused resources to a minimum and still check if we didn't just find a weird situation.
-
+\\[2ex]
 However, after some further analysis of the problem, an algorithm was devised to calculate adjustments to the input values directly from the average excess values, without rerunning the search:
-
+\\[2ex]
 We started by modelling the problem using a graph:
 \begin{enumerate}
-	\item Each input resource r_i was associated with a node n_i.
-	\item Each node n_i was assigned an adjustment value of 0 (n_{i}.adj), and an excess value (n_{i}.excess) with the average excess for resource r_i.
-	\item For any two resources r_m and r_n, we added a link l between them iff they appeared together in the prerequisite clause at least one action.
+	\item Each input resource $r_i$ was associated with a node $n_i$.
+	\item Each node $n_i$ was assigned an adjustment value of 0 ($n_{i}.adj$), and an excess value ($n_{i}.excess$) with the average excess for resource $r_i$.
+	\item For any two resources $r_m$ and $r_n$, we added a link l between them iff they appeared together in the prerequisite clause at least one action.
 \end{enumerate}
 
 From this model we worked out the following algorithm to find possible adjustments:
-\begin{enumeration}
-	\item Put all nodes n_i in the queue Q.
-	\item Pop the first node n_{current} from Q.
-	\item Check if n_{current}.excess < |n_{current}.links|.
+\begin{enumerate}
+	\item Put all nodes $n_i$ in the queue Q.
+	\item Pop the first node $n_{current}$ from Q.
+	\item Check if $n_{current}.excess$ < $|n_{current}.links|$.
 	\item If true:
-		\begin{enumeration}
+		\begin{enumerate}
 			\item If Q is empty we are done, else goto step 2.
-		\end{enumeration1}
+		\end{enumerate}
 	\item If false:
-		\begin{enumeration}
-			\item For each link l in n_{current}.links:
-				\begin{enumeration}
+		\begin{enumerate}
+			\item For each link l in $n_{current}.links$:
+				\begin{enumerate}
 					\item l.node.adj++
 					\item For each link l' in l.node.links.
-						\begin{enumeration}
+						\begin{enumerate}
 							\item l'.node--;
-						\end{enumeration}
-				\end{enumeration}
-			\item n_{current}.excess -= |n_{current}.links|
-			\item n_{current}.adj -= |n_{current}.links|
-		\end{enumeration}
-\end{enumeration}
+						\end{enumerate}
+				\end{enumerate}
+			\item $n_{current}.excess$ -= $|n_{current}.links|$
+			\item $n_{current}.adj$ -= $|n_{current}.links|$
+		\end{enumerate}
+\end{enumerate}
 
-When algorithm has finished, the suggested adjustments for each input resource r_i can be read from n_{i}.adj .
-
+When algorithm has finished, the suggested adjustments for each input resource $r_i$ can be read from $n_{i}.adj$ .
+\\[2ex]
 This algorithm is built on the idea that for any amount of resoures, we want a combination that maximizes the total utilization.
 
-\section*{Heuristic function}
-We calculated an optimistic function for some starting states and the hours weren't that much lower than our numbers, so they are pretty good.
 
 \section*{Conclusions}
 When we started solving this with A* we made an optimistic Heuristic function. This function estimated the time to reach 1000 Serviced Plonks to 25 hours for the resource distribution (5 Spunkees, 6 Bligees, 12 Plinks, 16 Workbenches and 11 Bligs) and our greedy algorithm arrived at 1000 Serviced Plonks at 28 hours.
-\\ \\
+\\[2ex]
 The good solution together with our quick runtime, less then 1 second, allows us to conclude that our algorithm is sufficiently good.
 
 \end{document}
