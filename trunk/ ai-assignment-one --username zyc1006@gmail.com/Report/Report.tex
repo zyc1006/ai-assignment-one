@@ -30,7 +30,7 @@ Our algorithm first checks that none of the input is 0 or that if bligees is 0 w
 	\item Check what of the 5 possible actions we can do and do them, we choose to prioritize the actions like this, with the most prioritized one first:
 	\begin{enumerate}
 		\item Service as many plonks as possible.
-		\item With the remaining resources, find as many plonks as possible.
+		\item With the remaining resources, find as many plonks as possible, but maximum of 1000.
 		\item With the remaining resources, service broken bligs using the fast service.
 		\item With the remaining resources, service broken bligs using the slow service.
 		\item With the remaining resources, make more spunks.
@@ -49,9 +49,6 @@ We made the decision early on to only service broken bligs. During development o
 \section*{Suggestions}
 To give the user suggestions as what to change concerning the resources, we calculate the average unused employees and tools. We then consider to take a ressource with the highest unused time and give one to the lowest. The program takes another run with changed values afterwards to check if the change really improves the time and then gives the user the suggestion.
 This way, we keep unused ressources to a minimum and still check if we didn't just find a weird situation.
-
-\section*{Heuristic function}
-We calculated an optimistic function for some starting states and the hours weren't that much lower than our numbers, so they are pretty good.
 
 \section*{Conclusions}
 When we started solving this with A* we made an optimistic Heuristic function. This function estimated the time to reach 1000 Serviced Plonks to 25 hours for the resource distribution (5 Spunkees, 6 Bligees, 12 Plinks, 16 Workbenches and 11 Bligs) and our greedy algorithm arrived at 1000 Serviced Plonks at 28 hours.
