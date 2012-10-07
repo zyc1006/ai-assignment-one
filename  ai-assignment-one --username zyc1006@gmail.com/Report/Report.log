@@ -1,23 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=latex 2012.10.5)  5 OCT 2012 17:02
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2011.1.30)  7 OCT 2012 14:54
 entering extended mode
-**Report.tex
-
-("D:\Daniel\Documents\Universitet\Artificial Intelligence\Ass1\ai-assignment-on
-e\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.tex"
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+**D:/Work/AI/Ass1/*ai-assignment-one*--username*zyc1006@gmail.com/Report/Report.tex
+("D:/Work/AI/Ass1/ ai-assignment-one --username zyc1006@gmail.com/Report/Report.tex"
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, german, ngerman, german-x-2009-06-19, ngerm
+an-x-2009-06-19, french, loaded.
+(D:\Work\Tools\LaTeX\MikTex\tex\latex\base\article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+(D:\Work\Tools\LaTeX\MikTex\tex\latex\base\size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -32,7 +22,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-No file Report.aux.
+("D:\Work\AI\Ass1\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
@@ -52,27 +42,209 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 18.
 
+Runaway argument?
+! Paragraph ended before \OT1\" was complete.
+<to be read again> 
+                   \par 
+l.22 
+     
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 24--27
 
  []
 
 [1
 
-]
+{C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 42--45
 
  []
 
-[2] [3]
-("D:\Daniel\Documents\Universitet\Artificial Intelligence\Ass1\ai-assignment-on
-e\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.aux") ) 
-Here is how much of TeX's memory you used:
- 227 strings out of 494046
- 3016 string characters out of 3148407
- 52890 words of memory out of 3000000
- 3597 multiletter control sequences out of 15000+200000
- 7449 words of font info for 27 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
- 23i,6n,17p,444b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+[2]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.57 	\item Each input resource r_
+                                  i was associated with a node n_i.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-Output written on Report.dvi (3 pages, 7676 bytes).
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 57.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 57.
+
+! LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 	\item
+            Each node n_i was assigned an adjustment value of 0 (n_{i}.adj),...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 	\item E
+             ach node n_i was assigned an adjustment value of 0 (n_{i}.adj),...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 	\item E
+             ach node n_i was assigned an adjustment value of 0 (n_{i}.adj),...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 	\item
+            For any two resources r_m and r_n, we added a link between them ...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.59 	\item F
+             or any two resources r_m and r_n, we added a link between them ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.59 	\item F
+             or any two resources r_m and r_n, we added a link between them ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (438.7163pt too wide) in paragraph at lines 57--59
+[]\OT1/cmr/m/n/10 Each in-put re-source r$[]\OML/cmm/m/it/10 wasassociatedwithanoden[]:Eachnoden[]wasassignedanadjustmen
+tvalueof\OT1/cmr/m/n/10 0(\OML/cmm/m/it/10 n[]:adj\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; andanexcessvalue\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 n[]:excess\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 withtheaverageexcessforresourcer[]:[][]$ 
+ []
+
+! Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.59 	\item F
+             or any two resources r_m and r_n, we added a link between them ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.59 	\item For any two resources r_
+                                    m and r_n, we added a link between them ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+! LaTeX Error: Command \end{enumerate} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \end{enumerate}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \end{enumerate}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \end{enumerate}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.60 \end{enumerate}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (204.27269pt too wide) in paragraph at lines 59--61
+[]\OT1/cmr/m/n/10 For any two re-sources r$[]\OML/cmm/m/it/10 andr[]; weaddedalinkbetweenthemifftheyappearedtogetherinth
+eprerequisiteclauseatleastoneaction:$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
+
+ []
+
+[3] ("D:\Work\AI\Ass1\ ai-assignment-one --username zyc1006@gmail.com\Report\Report.aux") ) 
+Here is how much of TeX's memory you used:
+ 233 strings out of 495285
+ 2905 string characters out of 3180426
+ 50047 words of memory out of 3000000
+ 3507 multiletter control sequences out of 15000+200000
+ 7449 words of font info for 27 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 23i,6n,17p,512b,234s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Work/Tools/LaTeX/MikTex/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Work/Tools/LaTeX/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Work/
+Tools/LaTeX/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Work/Tools/LaTeX/MikTex/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><D:/Work/Tools/LaTeX/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Work/Tools/LaTeX/MikTex/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb><D:/Work/Tools/LaTeX/MikTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Report.pdf (3 pages, 95435 bytes).
+PDF statistics:
+ 40 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
