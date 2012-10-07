@@ -109,7 +109,7 @@ namespace AIAssignment1
         {
             cStateInfo = new CStateInfo();
             htStatuInfo = new Hashtable();
-            lbMessage.Text = "";
+            tbMessageBox.Text = "";
             
 
             iTimeLine = 0;
@@ -121,16 +121,22 @@ namespace AIAssignment1
                 cStateInfo.IBligeesAvailable = Convert.ToInt32(txTotalBlige.Text);
                 cStateInfo.IPlinksAvailable = Convert.ToInt32(txTotalPl.Text);
                 cStateInfo.IWorkbenchesAvailable = Convert.ToInt32(txTotalWb.Text);
-                //cStateInfo.IBligsAvailable = Convert.ToInt32(txTotalBlig.Text);
-                cStateInfo.IBligsUnavailable = Convert.ToInt32(txTotalBlig.Text);
+                cStateInfo.IBligsAvailable = Convert.ToInt32(txTotalBlig.Text);
+                //cStateInfo.IBligsUnavailable = Convert.ToInt32(txTotalBlig.Text);
                 cStateInfo.IBligTotal = Convert.ToInt32(txTotalBlig.Text);
-                //cStateInfo.ListBligStatus[0] = cStateInfo.IBligsAvailable;
-                cStateInfo.ListBligStatus[8] = cStateInfo.IBligsUnavailable;
-                if (cStateInfo.ISpunkeesAvailable < 1 || cStateInfo.IBligeesAvailable < 1 ||
-                    cStateInfo.IPlinksAvailable < 1 || cStateInfo.IWorkbenchesAvailable < 1 ||
-                    cStateInfo.IBligTotal < 1)
+                cStateInfo.ListBligStatus[0] = cStateInfo.IBligsAvailable;
+                //cStateInfo.ListBligStatus[8] = cStateInfo.IBligsUnavailable;
+                if (cStateInfo.ISpunkeesAvailable < 1 || cStateInfo.IBligTotal < 1 ||
+                    cStateInfo.IPlinksAvailable < 1 || cStateInfo.IWorkbenchesAvailable < 1 )
                 {
-                    lbMessage.Text = "Invalid input!";
+                    tbMessageBox.Text = "Invalid input!";
+                    return false;
+                }
+                else if (cStateInfo.ISpunkeesAvailable >= 1 && cStateInfo.IBligeesAvailable == 0 &&
+                    cStateInfo.IPlinksAvailable >= 1 && cStateInfo.IWorkbenchesAvailable >= 1 &&
+                    cStateInfo.IBligTotal < 25)
+                {
+                    tbMessageBox.Text = "Invalid input!";
                     return false;
                 }
                 cActions = new CActions(cStateInfo);
@@ -138,7 +144,7 @@ namespace AIAssignment1
             }
             catch (System.Exception e)
             {
-                lbMessage.Text = "Invalid input!";
+                tbMessageBox.Text = "Invalid input!";
                 Console.WriteLine(e.Message);
                 return false;
             }
@@ -498,7 +504,9 @@ namespace AIAssignment1
                                     {
 
 
-                                        lbMessage.Text = "";
+                                        setTextBoxText(tbMessageBox,
+                                            "",
+                                            false);
                                         minTime = itime;
                                         setTextBoxText(tbMessageBox,
                                             "SP:" + a + "  " + "BE:" + b + "  " + "PL:" + f + "  " + "BL:" + c + "  " + "WB:" + d + "  MIN:"+ minTime +"h\r\n",
